@@ -1,6 +1,6 @@
 # GestionMagasin
 Magasiny it was an online stores where you can sell and buy products as much as you can.
-![alt text](https://github.com/Espriting/StockMagasinManagerAngular/tree/monam/image.jpg?raw=true)
+![alt text](https://github.com/Espriting/StockMagasinManagerAngular/blob/main/Application_Picture.JPG)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
 
