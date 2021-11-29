@@ -1,0 +1,74 @@
+<form class="col g-3 needs-validation" #f="ngForm">
+    <div class="form-floating mb-3">
+      <input class="form-control" id="floatingInput" name="libelle" type="text" placeholder="libelle" #nlib="ngModel" required
+        minlength="3" [(ngModel)]="product.libelle" />
+      <label for="floatingInput">Libelle</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="nlib.touched&&nlib.invalid">
+      <div *ngIf="nlib.hasError('required')">Libelle is required</div>
+      <div *ngIf="nlib.hasError('minlength')">Min Length is 3</div>
+    </div>
+  
+  
+    <div class="form-floating mb-3">
+      <input class="form-control" id="floatingInput" name="code" type="text" placeholder="code" #ncode="ngModel" required
+        [(ngModel)]="product.code" />
+      <label for="floatingInput">Code</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="ncode.touched&&ncode.invalid">
+      <div *ngIf="ncode.hasError('required')">Code is required</div>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <input class="form-control" id="floatingInput" name="prixUnitaire" type="text" placeholder="prixUnitaire" pattern="[0-9]*"
+        #nprix="ngModel" required [(ngModel)]="product.prixUnitaire" />
+      <label for="floatingInput">Prix unitaire</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="nprix.touched&&nprix.invalid">
+      <div *ngIf="nprix.hasError('required')">Prix is required</div>
+      <div *ngIf="nprix.hasError('pattern')">Prix must be a number</div>
+    </div>
+  
+    <div class="form-floating mb-3">
+      <select class="form-select" id="floatingSelect" name="categorieProduit" aria-label="Floating label select example" #ncat="ngModel" required
+        [(ngModel)]="product.categorieProduit">
+        <option selected="">Categorie produit</option>
+        <option value="Alimentaire">Alimentaire</option>
+        <option value="Quincaillerie">Quincaillerie</option>
+        <option value="Electromenager">Electromenager</option>
+      </select>
+      <label for="floatingSelect">Categorie produit</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="ncat.touched&&ncat.invalid">
+      <div *ngIf="ncat.hasError('required')">Categorie is required</div>
+    </div>
+
+
+    <div class="form-floating mb-3">
+      <input class="form-control" id="floatingInput" name="dateCreation" type="date" placeholder="Date de creation" #ndate="ngModel"
+        [(ngModel)]="product.dateCreation" />
+        
+      <label for="floatingInput">Date de creation</label>
+    </div>
+  
+  
+    <div class="mb-3">
+      <label class="form-label" for="customFile">Choose product picture</label>
+      <input class="form-control" id="customFile" type="file" #npic="ngModel" [(ngModel)]="product.picture" name="picture"
+        accept="image/*" (change)="onSelectFile($event)" />
+    </div>
+  
+    <div class="font-alert text-danger mb-3" *ngIf="ncat.touched&&ncat.invalid">
+      <div *ngIf="ncat.hasError('required')">Picture is required</div>
+    </div>
+  
+    <div class="form-check">
+      <input class="form-check-input" id="invalidCheck" type="checkbox" value="" required="" (click)="change()" />
+      <label class="form-check-label mb-0" for="invalidCheck">Agree to terms and conditions</label>
+    </div>
+  
+    <div class="col-12">
+      <button class="btn btn-primary mb-3" type="submit" style="position: relative; left:82%;"
+        [disabled]="(f.invalid) || (terms === false)" (click)="save()" data-bs-dismiss="modal">Save</button>
+    </div>
+  </form>

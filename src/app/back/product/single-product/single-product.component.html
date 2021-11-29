@@ -1,0 +1,84 @@
+<div class="col-12 p-card">
+  <div class="row">
+    <div class="col-sm-5 col-md-4">
+      <div class="position-relative h-sm-100"><a class="d-block h-100"
+          href="../../../app/e-commerce/product/product-details.html"><img
+            class="img-fluid fit-cover w-sm-100 h-sm-100 rounded-1 absolute-sm-centered"
+            src="../../../assets/img/products/{{product.picture}}" alt="" /></a>
+        <div class="badge rounded-pill bg-success position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2">New</div>
+      </div>
+    </div>
+    <div class="col-sm-7 col-md-8">
+      <div class="row">
+        <div class="col-lg-8">
+          <h5 class="mt-3 mt-sm-0">
+            <a class="text-dark fs-0 fs-lg-1"
+              href="../../../app/e-commerce/product/product-details.html">{{product.libelle}}</a>
+          </h5>
+          <p class="text-500 fs--1 mb-2 mb-md-3">Categorie: {{product.categorieProduit}}</p>
+          <ul class="list-unstyled d-none d-lg-block">
+            <li><span class="fas fa-circle" data-fa-transform="shrink-12"></span><span>Code: {{product.code}}</span>
+            </li>
+            <li><span class="fas fa-circle" data-fa-transform="shrink-12"></span><span>Date: </span></li>
+
+          </ul>
+        </div>
+        <div class="col-lg-4 d-flex justify-content-between flex-column">
+          <div>
+            <h4 class="fs-1 fs-md-2 text-warning mb-0">{{product.prixUnitaire}} DT</h4>
+            <h5 class="fs--1 text-500 mb-0 mt-1">
+              <del>100DT </del><span class="ms-1">-50%</span>
+            </h5>
+            <div class="mb-2 mt-3"><span class="fa fa-star text-warning"></span><span
+                class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span
+                class="fa fa-star text-warning"></span><span class="fa fa-star text-300"></span><span
+                class="ms-1">(8)</span>
+            </div>
+            <div class="d-none d-lg-block">
+              <p class="fs--1 mb-1">Stock: <strong class="text-success">Available</strong>
+              </p>
+            </div>
+          </div>
+          <div class="mt-2">
+            <a class="btn btn-sm btn-primary border-300 d-lg-block me-2 me-lg-0" data-bs-toggle="modal"
+              data-bs-target="#add-product" (click)="updateNotif()" >
+              <span class="far fa-edit"></span>
+              <span class="ms-2 d-none d-md-inline-block">Update</span></a>
+
+
+            <a class="btn btn-sm btn-danger border-300 d-lg-block me-2 me-lg-0"  (click)="deleteNotif()">
+              <span class="far fa-trash-alt"></span>
+              <span class="ms-2 d-none d-md-inline-block">Delete</span></a>
+
+
+<!--
+            <div class="modal fade" id="delete-product" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                <div class="modal-content position-relative justify-content-center">
+                  <div class="modal-header justify-content-center flex-column">
+                    <div class="icon-box">
+                      <i class="far fa-exclamation-circle"
+                        style="width: 150px; height: 150px; color: rgb(194, 0, 0);"></i>
+                    </div>
+                    <h4 class="modal-title w-100 flex-center">Are you sure?</h4>
+
+                  </div>
+                  <div class="modal-body">
+                    <p>Do you really want to delete these records? This process cannot be undone.</p>
+                  </div>
+                  <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" 
+                      data-bs-dismiss="modal">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
