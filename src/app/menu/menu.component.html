@@ -72,11 +72,12 @@
                 <hr class="mb-0 navbar-vertical-divider" />
               </div>
             </div>
-            <!-- parent pages--><a class="nav-link" href="app/calendar.html" role="button" aria-expanded="false">
-              <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-alt"></span></span><span class="nav-link-text ps-1">Calendar</span>
+            <!-- parent pages--><a class="nav-link"  role="button"  routerLink="/products">
+              <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-alt"></span>
+              </span><span class="nav-link-text ps-1">Products</span>
               </div>
             </a>
-            <!-- parent pages--><a class="nav-link" href="app/chat.html" role="button" aria-expanded="false">
+            <!-- parent pages--><a class="nav-link" routerLink="/products/details/91" role="button" aria-expanded="false">
               <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-comments"></span></span><span class="nav-link-text ps-1">Chat</span>
               </div>
             </a>
@@ -260,6 +261,6 @@
 
    <div class="content">
       <app-header></app-header>
-      <app-main-product></app-main-product>
+      <router-outlet></router-outlet>
     </div>
   
