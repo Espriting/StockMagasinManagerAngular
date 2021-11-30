@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Product } from 'src/app/model/product';
 import { environment } from 'src/environments/environment';
-import { Product } from '../model/product';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,9 @@ export class ProductService {
   }
 
   getProductById(idProduct: number){
-    return this.HttpClient.get(this.baseURL+'/retreive/'+idProduct);
+    return this.HttpClient.get(this.baseURL+'/search/'+idProduct);
   }
+
+  
 
 }
