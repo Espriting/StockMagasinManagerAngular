@@ -38,7 +38,7 @@ export class MainProductComponent implements OnInit {
 
   save(product: Product): void {
 
-    let i = this.products.indexOf(product);
+    /*let i = this.products.indexOf(product);
 
     if (i != -1) {
       //this.getProducts();
@@ -46,12 +46,12 @@ export class MainProductComponent implements OnInit {
       swal("success!", "Product updated!", "success");
 
     }
-    else {
+    else {*/
       //this.getProducts();
       this.productService.addProduct(product).subscribe(() => this.products.push(product));
       swal("success!", "Product added!", "success");
 
-    }
+    //}
   }
 
   showForm() {
