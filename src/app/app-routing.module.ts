@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MainProductComponent } from './Product-Management/product/main-product/main-product.component';
 import { ProductDetailsComponent } from './Product-Management/product/product-details/product-details.component';
+import {MainCommandeComponent} from "./Order-Management/commande/main-commande/main-commande.component";
 
 
 const routes: Routes = [
   {path: 'products', component:MainProductComponent},
+  {path: 'commandes', component:MainCommandeComponent},
   {path: 'details/:id', component:ProductDetailsComponent},
   {path: 'products/details/:id', component:ProductDetailsComponent},
   {path:'', component:MainProductComponent},

@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd90e1ce-d151-45fc-b04d-e8d48b48d496" name="Changes" comment="" />
+    <list default="true" id="cd90e1ce-d151-45fc-b04d-e8d48b48d496" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/commande.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/service/commande.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\wajdi\Documents\GitHub\StockMagasinManagerAngular\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -72,7 +83,7 @@
       <workItem from="1638433160402" duration="4976000" />
       <workItem from="1638469945796" duration="8000" />
       <workItem from="1638616020278" duration="4990000" />
-      <workItem from="1638625374004" duration="687000" />
+      <workItem from="1638625374004" duration="1043000" />
     </task>
     <servers />
   </component>
@@ -84,7 +95,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

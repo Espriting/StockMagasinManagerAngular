@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import {CommandeModule} from "./Order-Management/commande/commande.module";
 
 @NgModule({
   declarations: [
@@ -22,13 +23,15 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     ContentComponent,
     NotFoundComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     CommonModule,
-    ProductModule
+    ProductModule,
+      CommandeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
