@@ -1,0 +1,28 @@
+<div class="table-responsive scrollbar">
+    <table class="table">
+        <thead class="table-blue">
+        <tr>
+            <th scope="col">Montant Remise</th>
+            <th scope="col">Montant Facture</th>
+            <th scope="col">Date création</th>
+            <th scope="col">Active</th>
+            <th class="text-end" scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{facture.montantRemise}}</td>
+            <td>{{facture.montantFacture}}</td>
+            <td>{{facture.dateFacture}}</td>
+            <td>{{facture.active}}</td>
+            <td class="text-end">
+                <div>
+                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit"><span class="text-500 fas fa-edit " (click)="updateNotif()"></span></button>
+                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><span class="text-500 fas fa-trash-alt" (click)="deleteNotif()"></span></button>
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>

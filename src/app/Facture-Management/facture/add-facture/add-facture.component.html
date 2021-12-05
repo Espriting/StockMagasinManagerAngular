@@ -1,0 +1,42 @@
+<form class="col g-3 needs-validation" #f="ngForm">
+    <div class="form-floating mb-3">
+        <input class="form-control" id="floatingInput" name="montantRemise" type="text" placeholder="Montant Remise" #nlib="ngModel" required
+               minlength="3" [(ngModel)]="facture.montantRemise" />
+        <label for="floatingInput">Discount amount</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="nlib.touched&&nlib.invalid">
+        <div *ngIf="nlib.hasError('required')">Amount is required</div>
+        <div *ngIf="nlib.hasError('minlength')">Min Length is 3</div>
+    </div>
+
+
+    <div class="form-floating mb-3">
+        <input class="form-control" id="floatingInput" name="montantFacture" type="text" placeholder="code" #ncode="ngModel" required
+               [(ngModel)]="facture.montantFacture" />
+        <label for="floatingInput">Bill amount</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="ncode.touched&&ncode.invalid">
+        <div *ngIf="ncode.hasError('required')">Bill amount is required</div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input class="form-control" id="floatingInput" name="dateFacture" type="date"
+               #nprix="ngModel" required [(ngModel)]="facture.dateFacture" />
+        <label for="floatingInput">Date</label>
+    </div>
+    <div class="form-floating mb-3">
+        <select class="form-select" id="floatingSelect" name="active" aria-label="Floating label select example" #ncat="ngModel" required
+                [(ngModel)]="facture.active">
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </select>
+        <label for="floatingSelect">Active</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="ncat.touched&&ncat.invalid">
+        <div *ngIf="ncat.hasError('required')">Active is required</div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary mb-3" type="submit" style="position: relative; left:82%;"
+                [disabled]="(f.invalid) " (click)="save()" data-bs-dismiss="modal">Save</button>
+    </div>
+</form>

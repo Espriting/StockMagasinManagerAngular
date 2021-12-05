@@ -33,6 +33,7 @@ export class ProductService {
     return this.HttpClient.get(this.baseURL+'/search/'+idProduct);
   }
 
-  
+
+
 
 }
