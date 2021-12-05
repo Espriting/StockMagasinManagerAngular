@@ -20,7 +20,9 @@ export class AuthService {
 
 
     login(user: User) {
-        return this.http.post<User>(this.apiURL + '/login', user, {observe: 'response'});
+        return this.http.post<User>(this.apiURL + '/login', user,
+            {observe: 'response'});
+
     }
 
     saveToken(access_token: string) {
@@ -38,11 +40,6 @@ export class AuthService {
         this.loggedUser = decodedToken.sub;
     }
 
-    loadToken() {
-        this.token = <string>localStorage.getItem('access_token');
-        this.decodeJWT();
-    }
-
     logout() {
         this.loggedUser = this.loggedUser;
         this.roles = this.roles;
@@ -55,10 +52,6 @@ export class AuthService {
     isTokenExpired(): Boolean {
         return this.helper.isTokenExpired(this.token);
     }
-
-    // getToken(): string {
-    //     return this.token;
-    // }
 
     setLoggedUserFromLocalStorage(login: string) {
         this.loggedUser = login;
@@ -83,7 +76,15 @@ export class AuthService {
         httpOptions.headers =httpOptions.headers.set('Content-type', 'application/x-www-form-urlencoded');
         return this.http.post('http://localhost:8117/StockMagasinManager/login',body.toString(),httpOptions);
 
-
     }
+    isAdmin(): Boolean {
+        if (!this.roles)
+            return false;
+        return this.roles.indexOf('ROLE_SUPER_ADMIN') >= 0;
+    }
+    getToken() {
+        return localStorage.getItem('access_token');
+    }
+
 
 }

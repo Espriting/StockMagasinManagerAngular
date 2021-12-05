@@ -6,12 +6,14 @@ import {MainProductComponent} from './Product-Management/product/main-product/ma
 import {ProductDetailsComponent} from './Product-Management/product/product-details/product-details.component';
 import {LoginComponent} from "./User-Management/user/login/login.component";
 import {FormUserComponent} from "./User-Management/user/form-user/form-user.component";
+import {UserListComponent} from "./User-Management/user/user-list/user-list.component";
 
 
 const routes: Routes = [
     {path: 'products', component: MainProductComponent},
     {path: 'details/:id', component: ProductDetailsComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'users', component: UserListComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
     {path: '', component: MainProductComponent},
     {path:'subscribe', component: FormUserComponent},
