@@ -10,10 +10,10 @@ import {LoginComponent} from "./User-Management/user/login/login.component";
 const routes: Routes = [
     {path: 'products', component: MainProductComponent},
     {path: 'details/:id', component: ProductDetailsComponent},
+    {path: 'login', component: LoginComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
     {path: '', component: MainProductComponent},
     {path: '**', component: NotFoundComponent},
-    {path: 'login', component: LoginComponent}
 
 
 ];
