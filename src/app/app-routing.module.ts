@@ -5,6 +5,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {MainProductComponent} from './Product-Management/product/main-product/main-product.component';
 import {ProductDetailsComponent} from './Product-Management/product/product-details/product-details.component';
 import {LoginComponent} from "./User-Management/user/login/login.component";
+import {FormUserComponent} from "./User-Management/user/form-user/form-user.component";
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
     {path: '', component: MainProductComponent},
+    {path:'subscribe', component: FormUserComponent},
     {path: '**', component: NotFoundComponent},
 
 
