@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import {LoginComponent} from "./User-Management/user/login/login.component";
+import {userModule} from "./User-Management/user/user.module";
 
 @NgModule({
   declarations: [
@@ -21,14 +23,17 @@ import { RouterModule } from '@angular/router';
     MenuComponent,
     HeaderComponent,
     ContentComponent,
-    NotFoundComponent
+    NotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     CommonModule,
-    ProductModule
+    ProductModule,
+    userModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

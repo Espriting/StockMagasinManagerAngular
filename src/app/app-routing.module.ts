@@ -1,23 +1,26 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { MainProductComponent } from './Product-Management/product/main-product/main-product.component';
-import { ProductDetailsComponent } from './Product-Management/product/product-details/product-details.component';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {MainProductComponent} from './Product-Management/product/main-product/main-product.component';
+import {ProductDetailsComponent} from './Product-Management/product/product-details/product-details.component';
+import {LoginComponent} from "./User-Management/user/login/login.component";
 
 
 const routes: Routes = [
-  {path: 'products', component:MainProductComponent},
-  {path: 'details/:id', component:ProductDetailsComponent},
-  {path: 'products/details/:id', component:ProductDetailsComponent},
-  {path:'', component:MainProductComponent},
-  {path:'**', component:NotFoundComponent}
+    {path: 'products', component: MainProductComponent},
+    {path: 'details/:id', component: ProductDetailsComponent},
+    {path: 'products/details/:id', component: ProductDetailsComponent},
+    {path: '', component: MainProductComponent},
+    {path: '**', component: NotFoundComponent},
+    {path: 'login', component: LoginComponent}
 
-  
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),BrowserModule],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes), BrowserModule],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
