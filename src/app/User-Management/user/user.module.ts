@@ -6,6 +6,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppComponent} from "../../app.component";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
+import {MainProductComponent} from "../../Product-Management/product/main-product/main-product.component";
+import {SingleProductComponent} from "../../Product-Management/product/single-product/single-product.component";
 
 
 
@@ -20,6 +22,9 @@ import {RouterModule} from "@angular/router";
         FormsModule,
         ReactiveFormsModule,
         RouterModule
+    ],
+    exports:[
+        LoginComponent,
     ]
 })
 export class userModule { }
