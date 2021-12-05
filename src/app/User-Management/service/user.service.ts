@@ -11,14 +11,16 @@ import {AuthService} from "./auth.service";
 })
 export class UserService {
 
-    private baseURL = environment.url;
+    private baseURL = environment.url+"api/user";
+    public token="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBcm5vbGQiLCJyb2xlcyI6WyJST0xFX1NVUEVSX0FETUlOIl0sImlzcyI6Ii9TdG9ja01hZ2FzaW5NYW5hZ2VyL2xvZ2luIiwiZXhwIjoxNjM4NzQ2ODI5fQ.dM5tS39vibRveFl-jZb-_6wtB2t_Zr2AYw5WDVSkyAc";
+    constructor(private HttpClient: HttpClient) {
 
-    constructor(private HttpClient: HttpClient, private authService: AuthService) {
     }
 
 
     getUsersList(): Observable<any>{
-        return this.HttpClient.get(this.baseURL+'api/user/users');
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.get(this.baseURL+ '/users',{headers});
     }
     addUser(user: User) {
         return this.HttpClient.post(this.baseURL + '/registerUser', user);
@@ -42,5 +44,8 @@ export class UserService {
 
     register(user: User) {
         return this.HttpClient.put(this.baseURL + '/registerUser', user);
+    }
+    GetuserByEmailAndPassword(email: string , password:string){
+
     }
 }

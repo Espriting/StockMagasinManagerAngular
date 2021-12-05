@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+
     localStorage.clear();
+
   }
   onLoggedin(nom: any , password : any){
 

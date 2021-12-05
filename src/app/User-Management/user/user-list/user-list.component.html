@@ -29,6 +29,7 @@
         <td>{{user.password}}</td>
         <td>{{user.roles}}</td>
         <td>{{user.picture}}</td>
+
         <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerUser(user)">Supprimer</a></td>
         <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateUser',user.id]">Modifier</a></td>
 
