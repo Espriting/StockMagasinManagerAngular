@@ -24,7 +24,6 @@ import {userModule} from "./User-Management/user/user.module";
     HeaderComponent,
     ContentComponent,
     NotFoundComponent,
-
   ],
   imports: [
     BrowserModule,

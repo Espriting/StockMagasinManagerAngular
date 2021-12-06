@@ -1,3 +1,5 @@
+import {roles} from "./roles";
+
 export class User{
     id: number;
     nom: string;
@@ -5,7 +7,7 @@ export class User{
     dateNaissance: any;
     email: string;
     password: string;
-    roles:string[];
+    roles:roles[];
     categorie: string;
     picture: string;
 

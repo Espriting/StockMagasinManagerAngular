@@ -1,35 +1,31 @@
-<br><br>
-<div class="container">
-
-    <br>
-
-    <table class="table table-hover">
+<div class="table-responsive scrollbar">
+    <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Last name</th>
-            <th>BirthDate</th>
-            <th>Email</th>
-            <th>Categorie</th>
-            <th>Role</th>
-            <th>Action</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">BirthDate</th>
+            <th scope="col">Email</th>
+            <th scope="col">Categorie</th>
+            <th scope="col">Role</th>
+            <th class="text-end" scope="col">Actions</th>
         </tr>
         </thead>
-        <tbody>
         <tbody *ngFor="let user of users">
+        <tr>
+            <td>{{user.nom}}</td>
+            <td>{{user.prenom}}</td>
+            <td>{{user.dateNaissance| date:'dd/MM/yyyy' }}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.categorie}}</td>
+            <td>{{user.roles[0].nom}}</td>
+            <td class="text-end">
+                <div>
+                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" [routerLink]="['/updateUser',user.id]"><span class="text-500 fas fa-edit"></span></button>
+                    <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" (click)="delete(user)"><span class="text-500 fas fa-trash-alt"></span></button>
+                </div>
+            </td>
+        </tr>
 
-        <td>{{user.id}}</td>
-        <td>{{user.nom}}</td>
-        <td>{{user.prenom}}</td>
-        <td>{{user.dateNaissance| date:'dd/MM/yyyy' }}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.categorie}}</td>
-        <td>{{user.roles}}</td>
-        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="delete(user)">Supprimer</a></td>
-        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateUser',user.id]">Modifier</a></td>
-
-        </tbody>
     </table>
 </div>
-

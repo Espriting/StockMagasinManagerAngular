@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../../../model/User";
 import {AuthService} from "../../service/auth.service";
 import {UserService} from "../../service/user.service";
-import {Feedback} from "../../../model/feedback";
 
 @Component({
     selector: 'app-user-list',
@@ -17,14 +16,11 @@ export class UserListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
-        localStorage.getItem('access_token');
+        localStorage.getItem('tokenUser');
         this.getUser();
-
     }
 
     getUser() {
-
         this.userService.getUsersList().subscribe(
             data => {
                 console.log(data);
@@ -44,17 +40,16 @@ export class UserListComponent implements OnInit {
     // }
 
 
-    delete(user:User){
+    delete(user: User) {
         console.log("suppppppppppppppppppppppppppppp supprimé");
-            let conf = confirm("Etes-vous sûr ?");
+        let conf = confirm("Etes-vous sûr ?");
         let i = this.users.indexOf(user);
         if (conf)
-        this.userService.deleteUser(user.id).subscribe((data: any) => {
-            this.users.splice(i, 1)
-            console.log(i)
-        });
+            this.userService.deleteUser(user.id).subscribe((data: any) => {
+                this.users.splice(i, 1)
+                console.log(i)
+            });
     }
-
 
 
     // SuprimerProduitDuTableau(usr: User) {

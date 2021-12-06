@@ -9,6 +9,7 @@ import {RouterModule} from "@angular/router";
 import {MainProductComponent} from "../../Product-Management/product/main-product/main-product.component";
 import {SingleProductComponent} from "../../Product-Management/product/single-product/single-product.component";
 import { UserListComponent } from './user-list/user-list.component';
+import { UserForgetComponent } from './user-forget/user-forget.component';
 
 
 
@@ -16,7 +17,8 @@ import { UserListComponent } from './user-list/user-list.component';
   declarations: [
       FormUserComponent,
     LoginComponent,
-    UserListComponent
+    UserListComponent,
+    UserForgetComponent
   ],
     imports: [
         CommonModule,

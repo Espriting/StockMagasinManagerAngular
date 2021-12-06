@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../../../model/User";
 import {AuthService} from "../../service/auth.service";
 import {UserService} from "../../service/user.service";
+import {roles} from "../../../model/roles";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-user',
@@ -11,8 +13,8 @@ import {UserService} from "../../service/user.service";
 export class FormUserComponent implements OnInit {
 
   newUser = new User();
-
-  constructor(public authService: AuthService, private userService: UserService) {
+  newrole = new roles();
+  constructor(public authService: AuthService, private userService: UserService,public router: Router) {
   }
 
   ngOnInit(): void {
@@ -23,6 +25,7 @@ export class FormUserComponent implements OnInit {
   save() {
     this.userService.addUser(this.newUser).subscribe(prod => {
       console.log(prod);
+      this.router.navigate(['/products']);
 
     });
   }
