@@ -3,12 +3,13 @@ import {Router} from "@angular/router";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {User} from "../../model/User";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    apiURL: string = 'http://localhost:8117/StockMagasinManager';
+    apiURL: string = environment.url;
     token: string;
     public loggedUser: string;
     public isloggedIn: Boolean = false;
@@ -74,7 +75,7 @@ export class AuthService {
         };
         console.log(body.toString())
         httpOptions.headers =httpOptions.headers.set('Content-type', 'application/x-www-form-urlencoded');
-        return this.http.post('http://localhost:8117/StockMagasinManager/login',body.toString(),httpOptions);
+        return this.http.post('http://localhost:8118/StockMagasinManager/login',body.toString(),httpOptions);
 
     }
     isAdmin(): Boolean {

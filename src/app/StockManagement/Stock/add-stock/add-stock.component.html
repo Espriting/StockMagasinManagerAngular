@@ -1,0 +1,20 @@
+<form class="  mx-auto" #f="ngForm">
+  <div class="form groupe ">
+      <div class="form control">
+          <input type="text"[(ngModel)]="stock.libelleStock" name="libelle" #nlib="ngModel" placeholder="type your libelle..." class="outline-none col-12 border-1" required>
+      </div> 
+      <div class="font-alert text-danger mb-3" *ngIf="nlib.touched&&nlib.invalid">
+        <div *ngIf="nlib.hasError('required')">Libelle is required</div>
+      </div> 
+      <div class="form groupe d-flex flex-row  mt-2  ">
+          <input type="text" [(ngModel)]="stock.qte"  name="qte" #nqte="ngModel"   placeholder="Quantity" class="outline-none col-6 mr-2" required >
+          <input type="text"[(ngModel)]="stock.qteMin" name="qteMin" #nqteMin="ngModel"   placeholder="Minimal Quantity" class="outline-none col-6 ml-1" required>
+      </div>
+      <div class="font-alert text-danger mb-3" *ngIf="nlib.touched&&nlib.invalid">
+        <div *ngIf="nqte.hasError('required') || nqteMin.hasError('required') ">Quantity et Minimal Quantity is required</div>
+      </div>
+      
+
+  </div>
+  <button type="submit" (click)="save()" class="btn btn-outline-primary" [disabled]="(f.invalid)"> Save Stock</button>
+</form>
