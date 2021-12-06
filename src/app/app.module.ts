@@ -17,6 +17,8 @@ import { RouterModule } from '@angular/router';
 import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stock.component';
 import { AddProductToStockComponent } from './StockManagement/Stock/add-product-to-stock/add-product-to-stock.component';
 import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
+import {LoginComponent} from "./User-Management/user/login/login.component";
+import {userModule} from "./User-Management/user/user.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.c
     ListStockComponent,
     AddProductToStockComponent,
     AddStockComponent
+
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.c
     RouterModule,
     CommonModule,
     ProductModule,
+    userModule,
     FormsModule
   ],
   providers: [],
