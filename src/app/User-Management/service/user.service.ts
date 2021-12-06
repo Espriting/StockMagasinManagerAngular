@@ -44,7 +44,7 @@ export class UserService {
     }
 
     login(user: User) {
-        this.getUserById(user.id);
+        const headers=new HttpHeaders().set("Authorization",this.token);
         return this.HttpClient.post(this.baseURL + '/login', user);
     }
 

@@ -26,9 +26,9 @@
                         </div>
                         <form class="w-50 mx-auto" #f="ngForm">
                             <div class="mb-3">
-                                <input type="text" name="firstName" class="form-control"
+                                <input placeholder="Name" type="text" name="firstName" class="form-control"
                                        [(ngModel)]="newUser.nom"
-                                       required minlength="3" pattern="[a-zA-Z]+$" #fn="ngModel">
+                                       pattern="[a-zA-Z]+$" #fn="ngModel">
                                 <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
                                     <div *ngIf="fn.hasError('required')"> FirstName is a required field</div>
                                     <div *ngIf="fn.hasError('minlength')"> FirstName minlength ies equal to 3</div>
@@ -37,30 +37,31 @@
 
                             </div>
                             <div class="mb-3">
-                                <input name="lastName" type="text" class="form-control" [(ngModel)]="newUser.prenom">
+                                <input placeholder="LastName" name="lastName" type="text" class="form-control" [(ngModel)]="newUser.prenom">
                             </div>
 
 
                             <div class="mb-3">
-                                <input name="email" type="email" class="form-control" [(ngModel)]="newUser.email">
+                                <input placeholder="Email" name="email" type="email" class="form-control" [(ngModel)]="newUser.email">
                             </div>
 
 
-                            <div class="mb-3">
-                                <input name="picture" type="text" class="form-control" [(ngModel)]="newUser.picture">
-                            </div>
+
 
                             <div class="mb-3">
-                                <input name="job" type="text" class="form-control" [(ngModel)]="newUser.categorie">
+                                <input placeholder="Date Of Birth" name="job" type="date" class="form-control" [(ngModel)]="newUser.dateNaissance">
+                            </div>
+                            <div class="mb-3">
+                                <input placeholder="Categorie" name="job" type="text" class="form-control" [(ngModel)]="newUser.categorie">
                             </div>
 
                             <div class="row gx-2">
                                 <div class="mb-3 col-sm-6">
-                                    <input name="password" type="password" class="form-control" [(ngModel)]="newUser.password">
+                                    <input placeholder="Password" name="password" type="password" class="form-control" [(ngModel)]="newUser.password">
                                 </div>
 
                                 <div class="mb-3 col-sm-6">
-                                    <input class="form-control" type="password" autocomplete="on" placeholder="Confirm Password" />
+                                    <input  class="form-control" type="password" autocomplete="on" placeholder="Confirm Password" />
                                 </div>
                             </div>
 

@@ -10,6 +10,8 @@ export class UserForgetComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    localStorage.clear();
+
   }
 
 }

@@ -7,12 +7,14 @@ import {ProductDetailsComponent} from './Product-Management/product/product-deta
 import {LoginComponent} from "./User-Management/user/login/login.component";
 import {FormUserComponent} from "./User-Management/user/form-user/form-user.component";
 import {UserListComponent} from "./User-Management/user/user-list/user-list.component";
+import {UserForgetComponent} from "./User-Management/user/user-forget/user-forget.component";
 
 
 const routes: Routes = [
     {path: 'products', component: MainProductComponent},
     {path: 'details/:id', component: ProductDetailsComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'forget', component: UserForgetComponent},
     {path: 'users', component: UserListComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
     {path: '', component: MainProductComponent},
