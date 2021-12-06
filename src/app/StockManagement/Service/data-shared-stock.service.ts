@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 })
 export class DataSharedStockService {
   private baseURL=environment.url+"api/stock";
- 
-  public token="Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBcm5vbGQiLCJyb2xlcyI6W10sImlzcyI6Ii9TdG9ja01hZ2FzaW5NYW5hZ2VyL2xvZ2luIiwiZXhwIjoxNjM4ODMyNzE2fQ.HVui0wNpMD4XVwd6GCJLt0FGmisfT4tlM8J7BkWPQoc";
+  public tokenUser=localStorage.getItem('tokenUser');
+  public token=this.tokenUser!;
   constructor(private httpClient: HttpClient) { }
 
  
