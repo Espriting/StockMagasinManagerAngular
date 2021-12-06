@@ -6,7 +6,7 @@ export class User{
     email: string;
     password: string;
     roles:string[];
-    accountCategory: string;
+    categorie: string;
     picture: string;
 
 

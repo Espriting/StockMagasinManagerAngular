@@ -6,31 +6,27 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>picture</th>
             <th>Id</th>
             <th>Name</th>
             <th>Last name</th>
             <th>BirthDate</th>
             <th>Email</th>
-            <th>Job</th>
-            <th>AccountCategory</th>
+            <th>Categorie</th>
+            <th>Role</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <tbody *ngFor="let user of users">
 
-        <td><img src="{{user.picture}}"></td>
         <td>{{user.id}}</td>
         <td>{{user.nom}}</td>
         <td>{{user.prenom}}</td>
         <td>{{user.dateNaissance| date:'dd/MM/yyyy' }}</td>
         <td>{{user.email}}</td>
-        <td>{{user.password}}</td>
+        <td>{{user.categorie}}</td>
         <td>{{user.roles}}</td>
-        <td>{{user.picture}}</td>
-
-        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerUser(user)">Supprimer</a></td>
+        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="delete(user)">Supprimer</a></td>
         <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateUser',user.id]">Modifier</a></td>
 
         </tbody>

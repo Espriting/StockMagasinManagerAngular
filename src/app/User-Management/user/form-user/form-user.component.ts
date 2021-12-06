@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../../../model/User";
+import {AuthService} from "../../service/auth.service";
+import {UserService} from "../../service/user.service";
 
 @Component({
   selector: 'app-form-user',
@@ -7,17 +9,21 @@ import {User} from "../../../model/User";
   styleUrls: ['./form-user.component.css']
 })
 export class FormUserComponent implements OnInit {
-  user: User;
 
-  constructor() { }
+  newUser = new User();
+
+  constructor(public authService: AuthService, private userService: UserService) {
+  }
 
   ngOnInit(): void {
-    this.user =  new User();
-
-  }
-  save(){
-    //traitement
+    localStorage.getItem('access_token');
 
   }
 
-}
+  save() {
+    this.userService.addUser(this.newUser).subscribe(prod => {
+      console.log(prod);
+
+    });
+  }
+  }

@@ -3,7 +3,7 @@
     <div class="form-group">
         <label>First Name:</label>
         <input type="text" name="firstName" class="form-control"
-               [(ngModel)]="user.nom"
+               [(ngModel)]="newUser.nom"
                required minlength="3" pattern="[a-zA-Z]+$" #fn="ngModel">
         <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
             <div *ngIf="fn.hasError('required')"> FirstName is a required field</div>
@@ -13,27 +13,27 @@
     </div>
     <div class="form-group">
         <label>Last Name:</label>
-        <input name="lastName" type="text" class="form-control" [(ngModel)]="user.prenom">
+        <input name="lastName" type="text" class="form-control" [(ngModel)]="newUser.prenom">
     </div>
     <div class="form-group">
         <label>Email:</label>
-        <input name="email" type="email" class="form-control" [(ngModel)]="user.email">
+        <input name="email" type="email" class="form-control" [(ngModel)]="newUser.email">
     </div>
     <div class="form-group">
         <label>Password:</label>
-        <input name="password" type="password" class="form-control" [(ngModel)]="user.password">
+        <input name="password" type="password" class="form-control" [(ngModel)]="newUser.password">
     </div>
     <div class="form-group">
         <label>Picture:</label>
-        <input name="picture" type="text" class="form-control" [(ngModel)]="user.picture">
+        <input name="picture" type="text" class="form-control" [(ngModel)]="newUser.picture">
     </div>
     <div class="form-group">
         <label>BirthDate:</label>
-        <input name="date" type="date" class="form-control" [(ngModel)]="user.dateNaissance">
+        <input name="date" type="date" class="form-control" [(ngModel)]="newUser.dateNaissance">
     </div>
     <div class="form-group">
         <label>Job:</label>
-        <input name="job" type="text" class="form-control" [(ngModel)]="user.roles">
+        <input name="job" type="text" class="form-control" [(ngModel)]="newUser.roles">
     </div>
     <br>
     <button class="btn btn-outline-success" (click)="save()"
