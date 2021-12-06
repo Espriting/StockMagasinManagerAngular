@@ -23,8 +23,9 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    localStorage.getItem('access_token');
 
-    localStorage.clear();
+  //  localStorage.clear();
 
   }
 

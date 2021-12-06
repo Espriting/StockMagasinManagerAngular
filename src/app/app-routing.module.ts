@@ -8,6 +8,7 @@ import {LoginComponent} from "./User-Management/user/login/login.component";
 import {FormUserComponent} from "./User-Management/user/form-user/form-user.component";
 import {UserListComponent} from "./User-Management/user/user-list/user-list.component";
 import {UserForgetComponent} from "./User-Management/user/user-forget/user-forget.component";
+import {UserUpdateComponent} from "./User-Management/user/user-update/user-update.component";
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'forget', component: UserForgetComponent},
     {path: 'users', component: UserListComponent},
+    {path: 'update/:id', component: UserUpdateComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
     {path: '', component: MainProductComponent},
     {path:'subscribe', component: FormUserComponent},

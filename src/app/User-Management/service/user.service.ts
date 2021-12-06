@@ -30,8 +30,8 @@ export class UserService {
     }
 
     updateUser(id: number, user: User) {
-
-        return this.HttpClient.put(this.baseURL + '/updateUser/${id}', user);
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.put(this.baseURL + '/updateUser/${id}', user,{headers});
     }
 
     deleteUser(id: number) {

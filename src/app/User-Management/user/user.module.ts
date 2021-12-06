@@ -10,6 +10,7 @@ import {MainProductComponent} from "../../Product-Management/product/main-produc
 import {SingleProductComponent} from "../../Product-Management/product/single-product/single-product.component";
 import { UserListComponent } from './user-list/user-list.component';
 import { UserForgetComponent } from './user-forget/user-forget.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
 
 
 
@@ -18,7 +19,8 @@ import { UserForgetComponent } from './user-forget/user-forget.component';
       FormUserComponent,
     LoginComponent,
     UserListComponent,
-    UserForgetComponent
+    UserForgetComponent,
+    UserUpdateComponent
   ],
     imports: [
         CommonModule,

@@ -28,6 +28,5 @@ export class FormUserComponent implements OnInit {
       this.router.navigate(['/products']);
 
     });
-    this.userService.getUsersList();
   }
 }
