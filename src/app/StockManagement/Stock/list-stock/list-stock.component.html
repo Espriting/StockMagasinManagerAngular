@@ -1,0 +1,65 @@
+
+       <div class="row ">
+        
+            <div>
+              
+              <div class="card">
+                <div  >
+                  <app-add-stock *ngIf="displayform"></app-add-stock>
+                </div>
+                <div class="card-header border-bottom">
+                  <div class="row flex-between-end">
+                    <div class="col-auto ms-auto">
+                      <div class="nav nav-pills nav-pills-falcon flex-grow-1 mt-2" role="tablist">
+                          <button  class="btn btn-outline-primary pull-right" (click)="displayFormTemplate()">add stock</button>
+                        <input type="text" class="form-control col-sm" [(ngModel)]="inputSearch" (ngModelChange)="searchStock()" placeholder="Rechercher.."/>
+                        <button class="btn btn-sm"  type="button" role="tab"  >Rechercher</button>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body pt-0">
+                  <div class="tab-content">
+                    <div class="tab-pane preview-tab-pane active" role="tabpanel" aria-labelledby="tab-dom-53258384-13ca-41d3-91d3-4ba8ebde1313" id="dom-53258384-13ca-41d3-91d3-4ba8ebde1313">
+                      <div class="table-responsive scrollbar">
+                        <table class="table" >
+                          <thead>
+                            <tr>
+                              <th scope="col">idStock</th>
+                              <th scope="col">libelle</th>
+                              <th scope="col">Quantité actuelle</th>
+                              <th scope="col">Quantité Minimal</th>
+                              <th scope="col">List des Produits</th>
+                              <th class="text-end" scope="col">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let stock of listStocks">
+                              <td>{{stock.idStock}}</td>
+                              <td>{{stock.libelleStock}}</td>
+                              <td>{{stock.qte}}</td>
+                              <td>{{stock.qteMin}}</td>
+                              <td *ngFor="let produit of stock.produit">
+                                <button class="btn btn-outline-sucess" >{{produit.libelle}}</button>
+                              </td>
+                              <td class="text-end">
+                                <div>
+                                  <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" ><span class="text-500 fas fa-edit"></span></button>
+                                  <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" (click)="deleteStock(stock.idStock)"><span class="text-500 fas fa-trash-alt" ></span></button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    
+                    <div class="tab-pane code-tab-pane" role="tabpanel" aria-labelledby="tab-dom-51e8badb-4449-4be7-9240-ac61b6c988e4" id="dom-51e8badb-4449-4be7-9240-ac61b6c988e4">
+                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            

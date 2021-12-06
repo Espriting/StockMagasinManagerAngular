@@ -14,15 +14,23 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
-import {CommandeModule} from "./Order-Management/commande/commande.module";
 
+import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stock.component';
+import { AddProductToStockComponent } from './StockManagement/Stock/add-product-to-stock/add-product-to-stock.component';
+import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
+import {LoginComponent} from "./User-Management/user/login/login.component";
+import {userModule} from "./User-Management/user/user.module";
+import { CommandeModule } from './Order-Management/commande/commande.module';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HeaderComponent,
     ContentComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ListStockComponent,
+    AddProductToStockComponent,
+    AddStockComponent
 
   ],
   imports: [
@@ -31,7 +39,9 @@ import {CommandeModule} from "./Order-Management/commande/commande.module";
     RouterModule,
     CommonModule,
     ProductModule,
-      CommandeModule
+    CommandeModule,
+    userModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
