@@ -1,0 +1,104 @@
+<div class="card mb-3" id="ordersTable"
+     data-list='{"valueNames":["order","date","address","status","amount"],"page":10,"pagination":true}'>
+    <div class="card-header">
+        <div class="row flex-between-center">
+            <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
+                <h1 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Commandes</h1>
+            </div>
+            <div class="col-8 col-sm-auto ms-auto text-end ps-0">
+                <div id="orders-actions">
+                    <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"
+                                                                                           data-fa-transform="shrink-3 down-2"></span><span
+                            class="d-none d-sm-inline-block ms-1">Filter</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive scrollbar">
+            <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                <thead class="bg-200 text-900">
+                <tr>
+                    <th>
+                        <div class="form-check fs-0 mb-0 d-flex align-items-center">
+                            <input class="form-check-input" id="checkbox-bulk-customers-select" type="checkbox"
+                                   data-bulk-select='{"body":"table-orders-body","actions":"orders-bulk-actions","replacedElement":"orders-actions"}'/>
+                        </div>
+                    </th>
+                    <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Commande</th>
+                    <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="date">Date</th>
+                    <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address">adresse
+                    </th>
+                    <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status">Status</th>
+                    <th class="sort pe-1 align-middle white-space-nowrap text-end" data-sort="amount">Montant</th>
+                    <th class="sort pe-1 align-middle white-space-nowrap text-end" data-sort="Action">Action</th>
+                </tr>
+                </thead>
+
+                <tbody class="list" id="table-orders-body" *ngFor="let cmd of commandes">
+                <tr class="btn-reveal-trigger">
+                    <td class="align-middle" style="width: 28px;">
+                        <div class="form-check fs-0 mb-0 d-flex align-items-center">
+                            <input class="form-check-input" type="checkbox" id="checkbox-0"
+                                   data-bulk-select-row="data-bulk-select-row"/>
+                        </div>
+                    </td>
+                    <td class="order py-2 align-middle white-space-nowrap">
+                        <a href="../../../app/e-commerce/orders/order-details.html">
+                            <strong>#{{cmd.idCommande}}</strong></a>
+                        by
+                        <strong>{{cmd.factures.user.nom}}</strong><br/>
+                        <a href="mailto:ricky@example.com">{{cmd.factures.user.email}}</a>
+                    </td>
+                    <td class="date py-2 align-middle">{{ cmd.dateCommande | date:'dd/MM/yyyy'}}</td>
+                    <div *ngFor="let livraison of livraisons">
+                        <div *ngIf="livraison.commande.idCommande == cmd.idCommande">
+                            <td class="address py-2 align-middle white-space-nowrap">{{livraison.adressse}}
+                                <p class="mb-0 text-500">Via Flat Rate</p>
+                            </td>
+                        </div>
+                        <div *ngIf="!(livraison.commande.idCommande == cmd.idCommande)">
+                            <td class="address py-2 align-middle white-space-nowrap">pas d'adresse pour cette commande
+                                <p class="mb-0 text-500">Via Flat Rate</p>
+                            </td>
+                        </div>
+                    </div>
+                    <td class="status py-2 align-middle text-center fs-0 white-space-nowrap"
+                        *ngFor="let livraison of livraisons">
+                        <span class="badge badge rounded-pill d-block badge-soft-success"
+                              *ngIf="cmd.etat == 1 && livraison.etat == 1">Completed
+                            <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                        </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-warning"
+                              *ngIf="cmd.etat == 1 && livraison.etat == 0">commande en cours
+                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2"></span>
+                        </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-danger"
+                              *ngIf="cmd.etat == 0 && livraison.etat == 0">commande annulé
+                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2"></span>
+                        </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-danger"
+                              *ngIf="cmd.etat == 0 && livraison.etat == 1">commande annulé
+                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2"></span>
+                        </span>
+                    </td>
+                    <td class="amount py-2 align-middle text-end fs-0 fw-medium">{{cmd.factures.montantFacture}} DT</td>
+                    <td class="amount py-2 align-middle text-end fs-0 fw-medium">
+                        <button type="button" class="btn btn-danger btn-sm" (click)="cancelCommande(cmd)">Cancel</button>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex align-items-center justify-content-center">
+            <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+            <ul class="pagination mb-0"></ul>
+            <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next">
+                <span class="fas fa-chevron-right">             </span></button>
+        </div>
+    </div>
+</div>

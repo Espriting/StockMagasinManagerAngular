@@ -1,17 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {Commande} from "../../../model/commande";
-import {CommandeService} from "../../service/commande.service";
 import {User} from "../../../model/user";
-import {Product} from "../../../model/product";
+import {CommandeService} from "../../service/commande.service";
 import {DeliveryService} from "../../service/delivery.service";
-import {Livraison} from "../../../model/livraison";
+import {Commande} from "../../../model/commande";
 
 @Component({
-    selector: 'app-main-commande',
-    templateUrl: './main-commande.component.html',
-    styleUrls: ['./main-commande.component.css']
+    selector: 'app-main-my-order',
+    templateUrl: './main-my-order.component.html',
+    styleUrls: ['./main-my-order.component.css']
 })
-export class MainCommandeComponent implements OnInit {
+export class MainMyOrderComponent implements OnInit {
     date: Date = new Date("1998-11-05");
     user1: User = {
         id: 5,
@@ -29,12 +27,11 @@ export class MainCommandeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.getCommandes();
+        this.getCommandesByClient();
     }
 
-    getCommandes() {
-
-        this.commandeService.getCommandes().subscribe(
+    getCommandesByClient() {
+        this.commandeService.getCommandesByClient(this.user1.id).subscribe(
             (data) => {
                 this.commandes = data;
                 console.log(this.commandes)
@@ -49,4 +46,9 @@ export class MainCommandeComponent implements OnInit {
             }
         );
     }
+    cancelCommande(commande: number){
+
+        this.commandeService.CancelCommande(commande);
+    }
+
 }

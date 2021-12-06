@@ -1,4 +1,7 @@
 export class User {
+
+
+
     id : number ;
     categorie: string;
     email: string;
@@ -6,4 +9,7 @@ export class User {
     password: string;
     date_naissance: Date;
     prenom: string;
+    constructor(id: number, categorie: string, email: string, nom: string, password: string, date_naissance: Date, prenom: string) {
+
+    }
 }

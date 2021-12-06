@@ -2,7 +2,7 @@
     <div class="card-header">
         <div class="row flex-between-center">
             <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-                <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Orders</h5>
+                <h1 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Commandes</h1>
             </div>
             <div class="col-8 col-sm-auto ms-auto text-end ps-0">
                 <div id="orders-actions">
@@ -28,6 +28,7 @@
                     <th class="sort pe-1 align-middle white-space-nowrap text-end" data-sort="amount">Montant</th>
                 </tr>
                 </thead>
+
                 <tbody class="list" id="table-orders-body"   *ngFor="let cmd of commandes" >
                 <tr class="btn-reveal-trigger">
                     <td class="align-middle" style="width: 28px;">
@@ -37,10 +38,10 @@
                     </td>
                     <td class="order py-2 align-middle white-space-nowrap">
                         <a href="../../../app/e-commerce/orders/order-details.html">
-                            <strong>{{cmd.idCommande}}</strong></a>
+                            <strong>#{{cmd.idCommande}}</strong></a>
                         by
-                        <strong></strong><br />
-                        <a href="mailto:ricky@example.com">ricky@example.com</a>
+                        <strong>{{cmd.factures.user.nom}}</strong><br />
+                        <a href="mailto:ricky@example.com">{{cmd.factures.user.email}}</a>
                     </td>
                     <td class="date py-2 align-middle">{{ cmd.dateCommande | date:'dd/MM/yyyy'}}</td>
                     <div *ngFor="let livraison of livraisons">
@@ -55,12 +56,22 @@
                             </td>
                         </div>
                     </div>
-                    <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
-                        <span class="badge badge rounded-pill d-block badge-soft-success">Completed
-                            <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                    <td class="status py-2 align-middle text-center fs-0 white-space-nowrap" *ngFor="let livraison of livraisons">
+                        <span class="badge badge rounded-pill d-block badge-soft-success" *ngIf="cmd.etat == 1 && livraison.etat == 1">Completed
+                            <span class="ms-1 fas fa-check" data-fa-transform="shrink-2" ></span>
                         </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-warning" *ngIf="cmd.etat == 1 && livraison.etat == 0">commande en cours
+                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2" ></span>
+                        </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-danger" *ngIf="cmd.etat == 0 && livraison.etat == 0">commande annulé
+                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2" ></span>
+                        </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-danger" *ngIf="cmd.etat == 0 && livraison.etat == 1">commande annulé
+                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2" ></span>
+                        </span>
+
                     </td>
-                    <td class="amount py-2 align-middle text-end fs-0 fw-medium">{{cmd.factures.montantFacture}}</td>
+                    <td class="amount py-2 align-middle text-end fs-0 fw-medium">{{cmd.factures.montantFacture}} DT</td>
                 </tr>
                 </tbody>
             </table>

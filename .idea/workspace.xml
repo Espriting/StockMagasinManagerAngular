@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd90e1ce-d151-45fc-b04d-e8d48b48d496" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/service/delivery.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/commande.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/facture.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/livraison.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/commande.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/commande.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/service/commande.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/service/commande.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/service/delivery.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/service/delivery.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,9 @@
       <workItem from="1638631201687" duration="2648000" />
       <workItem from="1638656649046" duration="594000" />
       <workItem from="1638696175338" duration="11542000" />
-      <workItem from="1638725576686" duration="9586000" />
+      <workItem from="1638725576686" duration="14198000" />
+      <workItem from="1638775391388" duration="7091000" />
+      <workItem from="1638808564570" duration="13191000" />
     </task>
     <servers />
   </component>

@@ -4,12 +4,16 @@ import {MainCommandeComponent} from "./main-commande/main-commande.component";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
+import { SingleOrderComponent } from './single-order/single-order.component';
+import { MainMyOrderComponent } from './main-my-order/main-my-order.component';
 
 
 
 @NgModule({
   declarations: [
-      MainCommandeComponent
+      MainCommandeComponent,
+      SingleOrderComponent,
+      MainMyOrderComponent
   ],
   imports: [
     CommonModule,
