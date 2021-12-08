@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product';
 import { Stock } from 'src/app/model/Stock';
 import { DataSharedStockService } from '../../Service/data-shared-stock.service';
 
@@ -9,8 +10,10 @@ import { DataSharedStockService } from '../../Service/data-shared-stock.service'
 })
 export class ListStockComponent implements OnInit {
 listStocks:Stock[];
-inputSearch:any;  
+listProdcut:Product[];
+inputSearch:any;
 displayform:boolean=false;
+inputStock: Stock;
   constructor(private stockservice:DataSharedStockService) { }
 
   ngOnInit(): void {
@@ -36,5 +39,8 @@ if (this.inputSearch==""){
   displayFormTemplate(){
     this.displayform=(this.displayform==true)?false:true;
   }
-
+  addItem(newStock: Stock) {
+    this.listStocks.push(newStock);
+    console.log(newStock);
+  }
 }

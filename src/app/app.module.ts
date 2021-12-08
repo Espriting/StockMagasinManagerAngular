@@ -19,6 +19,7 @@ import { AddProductToStockComponent } from './StockManagement/Stock/add-product-
 import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
 import {LoginComponent} from "./User-Management/user/login/login.component";
 import {userModule} from "./User-Management/user/user.module";
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import {userModule} from "./User-Management/user/user.module";
     CommonModule,
     ProductModule,
     userModule,
-    FormsModule
+    FormsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

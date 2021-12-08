@@ -31,9 +31,8 @@ export class DataSharedStockService {
     
   }
   deleteStock(idStock: number){
-    console.log(idStock);
     const headers=new HttpHeaders().set("Authorization",this.token);
-    return this.httpClient.delete(this.baseURL+'/deleteStock/'+idStock,{headers, responseType:'text' as 'json'});
+    return this.httpClient.delete(this.baseURL+'/deleteStock/'+idStock,{headers});
   }
 
   getStockById(idStock: number){
