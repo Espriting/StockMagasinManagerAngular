@@ -4,13 +4,10 @@ export class User{
     id: number;
     nom: string;
     prenom: string;
-    dateNaissance: any;
+    dateNaissance: Date;
     email: string;
     password: string;
     roles:roles[];
-    categorie: string;
-    picture: string;
-
 
 
 }

@@ -24,14 +24,14 @@ export class UserService {
         const headers=new HttpHeaders().set("Authorization",this.token);
         return this.HttpClient.get(this.baseURL+ '/users',{headers});
     }
-    addUser(user: User) {
+    addUser (user: User) {
         const headers=new HttpHeaders().set("Authorization",this.token);
         return this.HttpClient.post(this.baseURL + '/users/save', user,{headers});
     }
 
-    updateUser(id: number, user: User) {
+    updateUser(user: User,id:number):Observable<any> {
         const headers=new HttpHeaders().set("Authorization",this.token);
-        return this.HttpClient.put(this.baseURL + '/updateUser/${id}', user,{headers});
+        return this.HttpClient.put(this.baseURL + '/updateUser/${id}',user,{headers, responseType:'text' as 'json'});
     }
 
     deleteUser(id: number) {
@@ -40,7 +40,8 @@ export class UserService {
     }
 
     getUserById(id: number) {
-        return this.HttpClient.get(this.baseURL + '/getUserById/${id}' + id);
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.get(this.baseURL + '/getUserById/' + id,{headers, responseType:'text' as 'json'});
     }
 
     login(user: User) {
