@@ -1,14 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {User} from "../../model/User";
+import { environment } from 'src/environments/environment';
+import {pipe, throwError} from "rxjs";
+import {catchError, map} from "rxjs/operators";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    apiURL: string = 'http://localhost:8117/StockMagasinManager';
+    apiURL: string = environment.url;
     token: string;
     public loggedUser: string;
     public isloggedIn: Boolean = false;
@@ -22,7 +25,6 @@ export class AuthService {
     login(user: User) {
         return this.http.post<User>(this.apiURL + '/login', user,
             {observe: 'response'});
-
     }
 
     saveToken(access_token: string) {
@@ -51,16 +53,6 @@ export class AuthService {
 
     isTokenExpired(): Boolean {
         return this.helper.isTokenExpired(this.token);
-    }
-
-    setLoggedUserFromLocalStorage(login: string) {
-        this.loggedUser = login;
-        this.isloggedIn = true;
-        this.getUserRoles(login);
-    }
-
-    getUserRoles(login: string) {
-
     }
 
     generatetoken(nom:any, password:any){

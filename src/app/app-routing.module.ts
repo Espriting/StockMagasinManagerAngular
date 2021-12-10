@@ -9,6 +9,8 @@ import {FormUserComponent} from "./User-Management/user/form-user/form-user.comp
 import {UserListComponent} from "./User-Management/user/user-list/user-list.component";
 import {UserForgetComponent} from "./User-Management/user/user-forget/user-forget.component";
 import {UserUpdateComponent} from "./User-Management/user/user-update/user-update.component";
+import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
+import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stock.component';
 
 
 const routes: Routes = [
@@ -16,12 +18,15 @@ const routes: Routes = [
     {path: 'details/:id', component: ProductDetailsComponent},
     {path: 'login', component: LoginComponent},
     {path: 'forget', component: UserForgetComponent},
+    {path:'stock/addStock',component:AddStockComponent},
+    {path:'stock/listStock',component:ListStockComponent},
     {path: 'users', component: UserListComponent},
     {path: 'update/:id', component: UserUpdateComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
     {path: '', component: MainProductComponent},
     {path:'subscribe', component: FormUserComponent},
     {path: '**', component: NotFoundComponent},
+
 
 
 ];

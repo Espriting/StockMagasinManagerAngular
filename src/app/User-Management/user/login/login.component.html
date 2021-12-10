@@ -23,27 +23,36 @@
                             </div>
                             <div class="col-auto fs--1 text-600"><span class="mb-0 undefined">or</span> <span><a [routerLink]="['/subscribe']">Create an account</a></span></div>
                         </div>
-                        <form>
-                            <div class="mb-3">
-                                <input type="text" name="nom"
-                                       class="form-control"
-                                       [(ngModel)]="user.nom" >                            </div>
-                            <div class="mb-3">
-                                <input type="password"    name="password"
-                                       [(ngModel)]="user.password"   class="form-control">                            </div>
-                            <div class="row flex-between-center">
-                                <div class="col-auto">
-                                    <div class="form-check mb-0">
-                                        <input class="form-check-input" type="checkbox" id="basic-checkbox" checked="checked" />
-                                        <label class="form-check-label mb-0" for="basic-checkbox">Remember me</label>
+
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="nom">User Name</label>
+                                <input type="text" class="form-control" id="nom"
+                                       formControlName="nom">
+                                <div class="alert alert-danger" *ngIf="loginForm.get('nom').invalid
+            && loginForm.get('nom').touched">
+                                    <div *ngIf="loginForm.get('nom').errors.required">
+                                        User name is required
                                     </div>
                                 </div>
-                                <div class="col-auto"><a class="fs--1" routerLink="/forget">Forgot Password?</a></div>
                             </div>
-                            <div class="mb-3">
-                                <button type="button" (click)="onLoggedin(user.nom,user.password)"
-                                        class="btn btn-success">Connexion</button>                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password"
+                                       formControlName="password">
+                                <div class="alert alert-danger" *ngIf="loginForm.get('password').invalid
+            && loginForm.get('password').touched">
+                                    <div *ngIf="loginForm.get('password').errors.required">
+                                        Password is required
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success">Login</button>
+                            <div class="alert alert-warning" *ngIf="submitted && isLoginFailed">
+                                Login failed- {{ errorMessage }}
+                            </div>
                         </form>
+
                         <div class="position-relative mt-4">
                             <hr class="bg-300" />
                             <div class="divider-content-center">or log in with</div>
