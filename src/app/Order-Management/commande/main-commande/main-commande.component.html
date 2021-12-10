@@ -1,4 +1,5 @@
-<div class="card mb-3" id="ordersTable" data-list='{"valueNames":["order","date","address","status","amount"],"page":10,"pagination":true}'>
+<div class="card mb-3" id="ordersTable"
+     data-list='{"valueNames":["order","date","address","status","amount"],"page":10,"pagination":true}'>
     <div class="card-header">
         <div class="row flex-between-center">
             <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
@@ -6,7 +7,9 @@
             </div>
             <div class="col-8 col-sm-auto ms-auto text-end ps-0">
                 <div id="orders-actions">
-                    <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter" data-fa-transform="shrink-3 down-2"></span><span class="d-none d-sm-inline-block ms-1">Filter</span></button>
+                    <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"
+                                                                                           data-fa-transform="shrink-3 down-2"></span><span
+                            class="d-none d-sm-inline-block ms-1">Filter</span></button>
                 </div>
             </div>
         </div>
@@ -18,60 +21,261 @@
                 <tr>
                     <th>
                         <div class="form-check fs-0 mb-0 d-flex align-items-center">
-                            <input class="form-check-input" id="checkbox-bulk-customers-select" type="checkbox" data-bulk-select='{"body":"table-orders-body","actions":"orders-bulk-actions","replacedElement":"orders-actions"}' />
+                            <input class="form-check-input" id="checkbox-bulk-customers-select" type="checkbox"
+                                   data-bulk-select='{"body":"table-orders-body","actions":"orders-bulk-actions","replacedElement":"orders-actions"}'/>
                         </div>
                     </th>
                     <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Commande</th>
                     <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="date">Date</th>
-                    <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address" style="min-width: 12.5rem;">adresse</th>
+                    <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address"
+                        style="min-width: 12.5rem;">adresse
+                    </th>
                     <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status">Status</th>
                     <th class="sort pe-1 align-middle white-space-nowrap text-end" data-sort="amount">Montant</th>
+                    <th class="sort pe-1 align-middle white-space-nowrap text-end" data-sort="Action">Action</th>
+
                 </tr>
                 </thead>
 
-                <tbody class="list" id="table-orders-body"   *ngFor="let cmd of commandes" >
+                <tbody class="list" id="table-orders-body" *ngFor="let liv of livraisons">
                 <tr class="btn-reveal-trigger">
                     <td class="align-middle" style="width: 28px;">
                         <div class="form-check fs-0 mb-0 d-flex align-items-center">
-                            <input class="form-check-input" type="checkbox" id="checkbox-0" data-bulk-select-row="data-bulk-select-row" />
+                            <input class="form-check-input" type="checkbox" id="checkbox-0"
+                                   data-bulk-select-row="data-bulk-select-row"/>
                         </div>
                     </td>
                     <td class="order py-2 align-middle white-space-nowrap">
-                        <a href="../../../app/e-commerce/orders/order-details.html">
-                            <strong>#{{cmd.idCommande}}</strong></a>
-                        by
-                        <strong>{{cmd.factures.user.nom}}</strong><br />
-                        <a href="mailto:ricky@example.com">{{cmd.factures.user.email}}</a>
+                        <!--<a (click)="showCmd(liv.commande.idCommande)">-->
+                        <a style="color:#027322" (click)="basicModal.show()" mdbWavesEffect>
+                            #{{liv.commande.idCommande}}
+                            <div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" >
+                                #{{liv.commande.idCommande}}
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content ">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel">Commande N°: {{liv.commande.idCommande}}</h4>
+                                            <h6>Client:<br> {{liv.commande.factures.user.prenom}} {{liv.commande.factures.user.nom}}</h6>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div *ngIf="liv.etat">
+                                                <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th><strong>Status:</strong></th>
+                                                        <td>Cette commande a été livré avec succés</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>N° Facture :</strong></th>
+                                                        <td>{{liv.commande.factures.idFacture}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Montant  du facture:</strong></th>
+                                                        <td>{{liv.commande.factures.montantFacture}} DT</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Date de commande:</strong></th>
+                                                        <td>{{liv.commande.dateCommande | date:'dd/MM/yyyy'}}</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div *ngIf="!(liv.etat)">
+                                                <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th><strong>Status:</strong></th>
+                                                        <td>Cette commande n'a pas encore livré</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>N° Facture :</strong></th>
+                                                        <td>{{liv.commande.factures.idFacture}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Montant  du facture:</strong></th>
+                                                        <td>{{liv.commande.factures.montantFacture}} DT</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Date de commande:</strong></th>
+                                                        <td>{{liv.commande.dateCommande | date:'dd/MM/yyyy'}}</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="retour" (click)="basicModal.hide()" mdbWavesEffect>Retour</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        Par
+                        <strong>{{liv.commande.factures.user.nom}}</strong><br/>
+                        <a href="mailto:ricky@example.com">{{liv.commande.factures.user.email}}</a>
                     </td>
-                    <td class="date py-2 align-middle">{{ cmd.dateCommande | date:'dd/MM/yyyy'}}</td>
-                    <div *ngFor="let livraison of livraisons">
-                        <div *ngIf="livraison.commande.idCommande == cmd.idCommande">
-                    <td class="address py-2 align-middle white-space-nowrap">{{livraison.adressse}}
+                    <td class="date py-2 align-middle">{{ liv.commande.dateCommande | date:'dd/MM/yyyy'}}</td>
+
+
+                    <td class="address py-2 align-middle white-space-nowrap">{{liv.adressse}}
                         <p class="mb-0 text-500">Via Flat Rate</p>
                     </td>
-                        </div>
-                        <div *ngIf="!(livraison.commande.idCommande == cmd.idCommande)">
-                            <td class="address py-2 align-middle white-space-nowrap">pas d'adresse pour cette commande
-                                <p class="mb-0 text-500">Via Flat Rate</p>
-                            </td>
-                        </div>
-                    </div>
-                    <td class="status py-2 align-middle text-center fs-0 white-space-nowrap" *ngFor="let livraison of livraisons">
-                        <span class="badge badge rounded-pill d-block badge-soft-success" *ngIf="cmd.etat == 1 && livraison.etat == 1">Completed
-                            <span class="ms-1 fas fa-check" data-fa-transform="shrink-2" ></span>
-                        </span>
-                        <span class="badge badge rounded-pill d-block badge-soft-warning" *ngIf="cmd.etat == 1 && livraison.etat == 0">commande en cours
-                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2" ></span>
-                        </span>
-                        <span class="badge badge rounded-pill d-block badge-soft-danger" *ngIf="cmd.etat == 0 && livraison.etat == 0">commande annulé
-                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2" ></span>
-                        </span>
-                        <span class="badge badge rounded-pill d-block badge-soft-danger" *ngIf="cmd.etat == 0 && livraison.etat == 1">commande annulé
-                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2" ></span>
-                        </span>
 
+
+                    <td class="status py-2 align-middle text-center fs-0 white-space-nowrap" >
+                        <span class="badge badge rounded-pill d-block badge-soft-success" style=" width: 11rem"
+                              *ngIf="(liv.etat  && liv.commande.etat)">Completed
+                            <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                        </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-warning " style=" width: 11rem"
+                              *ngIf="liv.commande.etat  && !(liv.etat)">commande en cours
+                            <span class="ms-1 fas bi-minecart-loaded" data-fa-transform="shrink-2"></span>
+                        </span>
+                        <span class="badge badge rounded-pill d-block badge-soft-danger" style=" width: 11rem"
+                              *ngIf="!(liv.commande.etat) && !(liv.etat)">commande annulé
+                            <span class="" data-fa-transform="shrink-2"></span>
+                        </span>
                     </td>
-                    <td class="amount py-2 align-middle text-end fs-0 fw-medium">{{cmd.factures.montantFacture}} DT</td>
+
+                    <td class="amount py-2 align-middle text-end " >{{liv.commande.factures.montantFacture}} DT</td>
+
+                    <td *ngIf="liv.etat && liv.commande.etat" class="amount py-2 align-middle text-end fs-0 fw-medium">
+                        <button type="button" class="btn btn-outline-success btn-sm" style=" width: 7.75rem"  (click)="detailModal.show()" mdbWavesEffect>
+                            detail
+                            <div mdbModal #detailModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" >
+                                #{{liv.idLivraison}}
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content ">
+                                        <div class="modal-header">
+                                            <div class="row align-items-start">
+                                                <div class="col align-self-center">
+                                                    <h6 class="modal-title" id="myModalLabel"><strong>Livraison N°: </strong>{{liv.idLivraison}}</h6>
+                                                </div>
+                                                <div class="col align-self-center">
+                                                    <h6><strong>Client:</strong><br> {{liv.commande.factures.user.prenom}} {{liv.commande.factures.user.nom}}</h6>
+                                                </div>
+                                                <div class="col align-self-center">
+                                                    <h6><strong>Livreur:</strong><br> {{liv.user.prenom}} {{liv.user.nom}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div *ngIf="liv.etat">
+                                                <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th><strong>Status:</strong></th>
+                                                        <td>Cette commande a été livré avec succés</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>N° Facture :</strong></th>
+                                                        <td>{{liv.commande.factures.idFacture}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>N° Commande :</strong></th>
+                                                        <td>{{liv.commande.idCommande}}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th><strong>Montant  du facture:</strong></th>
+                                                        <td>{{liv.commande.factures.montantFacture}} DT</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Date de livraison:</strong></th>
+                                                        <td>{{liv.date | date:'dd/MM/yyyy'}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Date de commande:</strong></th>
+                                                        <td>{{liv.commande.dateCommande | date:'dd/MM/yyyy'}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Adresse:</strong></th>
+                                                        <td>{{liv.adressse}}</td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="retour" (click)="detailModal.hide()" mdbWavesEffect>Retour</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </td>
+                    <td *ngIf="!liv.etat && liv.commande.etat" class="amount py-2 align-middle text-end fs-0 fw-medium">
+                        <button type="button" class="btn btn-outline-warning btn-sm" style=" width: 7.75rem" (click)="detailModal1.show()" >detail
+                            <div mdbModal #detailModal1="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" >
+                                #{{liv.idLivraison}}
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content ">
+                                        <div class="modal-header">
+                                            <div class="row align-items-start">
+                                                <div class="col align-self-center">
+                                                    <h6 class="modal-title" id="myModalLabel"><strong>Livraison N°: </strong>{{liv.idLivraison}}</h6>
+                                                </div>
+                                                <div class="col align-self-center">
+                                                    <h6><strong>Client:</strong><br> {{liv.commande.factures.user.prenom}} {{liv.commande.factures.user.nom}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div *ngIf="!liv.etat">
+                                                <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th><strong>Status:</strong></th>
+                                                        <td>Cette commande est en cours de traitement</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>N° Facture :</strong></th>
+                                                        <td>{{liv.commande.factures.idFacture}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>N° Commande :</strong></th>
+                                                        <td>{{liv.commande.idCommande}}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th><strong>Montant  du facture:</strong></th>
+                                                        <td>{{liv.commande.factures.montantFacture}} DT</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Date de livraison:</strong></th>
+                                                        <td>pas encore de date de livraison</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Date de commande:</strong></th>
+                                                        <td>{{liv.commande.dateCommande | date:'dd/MM/yyyy'}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th><strong>Adresse:</strong></th>
+                                                        <td>{{liv.adressse}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="retour" (click)="detailModal1.hide()" mdbWavesEffect>Retour</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </td>
+                    <td *ngIf="!liv.etat && !(liv.commande.etat)" class="amount py-2 align-middle text-end fs-0 fw-medium">
+                        <button type="button" class="btn btn-outline-danger btn-sm"  style=" width: 7.75rem" (click)="detailModal2()" >detail
+                        </button>
+                    </td>
+
                 </tr>
                 </tbody>
             </table>
@@ -79,9 +283,11 @@
     </div>
     <div class="card-footer">
         <div class="d-flex align-items-center justify-content-center">
-            <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+            <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
+                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
             <ul class="pagination mb-0"></ul>
-            <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next"><span class="fas fa-chevron-right">             </span></button>
+            <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next">
+                <span class="fas fa-chevron-right">             </span></button>
         </div>
     </div>
 </div>

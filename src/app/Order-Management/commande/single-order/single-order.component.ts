@@ -17,13 +17,13 @@ export class SingleOrderComponent implements OnInit {
   }
   getCommandes() {
 
-
+/*
     this.deliveryService.getLivraisonesByCommande(this.cmd.idCommande).subscribe(
         (data1) => {
           this.livraisons = data1;
           console.log(this.livraisons)
         }
-    )
+    )*/
   }
 
 }

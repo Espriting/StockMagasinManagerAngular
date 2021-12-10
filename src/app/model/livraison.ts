@@ -1,4 +1,5 @@
 import {Commande} from "./commande";
+import {User} from "./User";
 
 export class Livraison {
     idLivraison: number ;
@@ -6,4 +7,5 @@ export class Livraison {
     etat: boolean;
     adressse: string;
     commande: Commande;
+    user: User
 }

@@ -14,6 +14,7 @@ import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.c
 import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stock.component';
 import { MainCommandeComponent } from './Order-Management/commande/main-commande/main-commande.component';
 import { MainMyOrderComponent } from './Order-Management/commande/main-my-order/main-my-order.component';
+import {MDBBootstrapModule} from "angular-bootstrap-md";
 
 
 const routes: Routes = [
@@ -38,7 +39,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes), BrowserModule],
+    imports: [RouterModule.forRoot(routes), BrowserModule,  MDBBootstrapModule.forRoot()],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

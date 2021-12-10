@@ -1,15 +1,16 @@
-export class User {
+import {roles} from "./roles";
 
-
-
-    id : number ;
-    categorie: string;
-    email: string;
+export class User{
+    id: number;
     nom: string;
-    password: string;
-    date_naissance: Date;
     prenom: string;
-    constructor(id: number, categorie: string, email: string, nom: string, password: string, date_naissance: Date, prenom: string) {
+    dateNaissance: any;
+    email: string;
+    password: string;
+    roles:roles[];
+    categorie: string;
+    picture: string;
 
-    }
+
+
 }

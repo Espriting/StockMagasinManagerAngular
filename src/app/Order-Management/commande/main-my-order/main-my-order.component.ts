@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../../model/user";
 import {CommandeService} from "../../service/commande.service";
 import {DeliveryService} from "../../service/delivery.service";
+import {UserService} from "../../../User-Management/service/user.service";
+import {Livraison} from "../../../model/livraison";
+import {User} from "../../../model/User";
 import {Commande} from "../../../model/commande";
+import swal from "sweetalert";
 
 @Component({
     selector: 'app-main-my-order',
@@ -10,45 +13,79 @@ import {Commande} from "../../../model/commande";
     styleUrls: ['./main-my-order.component.css']
 })
 export class MainMyOrderComponent implements OnInit {
-    date: Date = new Date("1998-11-05");
-    user1: User = {
-        id: 5,
-        categorie: "",
-        email: "Travolta@outlook.fr",
-        nom: "Travolta",
-        password: "$2a$10$itIsSV5Pe8BIvO/y/2oF0..pyZxAdHGdxB0DXd.ig7YVR073dqlFu",
-        date_naissance: this.date,
-        prenom: "John",
-    };
-    commandes: any[];
-    livraisons: any[];
+    user: User;
+    livraisons: Livraison[];
+    inputCommande: Commande;
 
-    constructor(private commandeService: CommandeService, private deliveryService: DeliveryService) {
+    constructor(private commandeService: CommandeService, private deliveryService: DeliveryService, private userService: UserService) {
     }
 
     ngOnInit(): void {
-        this.getCommandesByClient();
+        this.getCommandesByClient(5);
     }
 
-    getCommandesByClient() {
-        this.commandeService.getCommandesByClient(this.user1.id).subscribe(
+    getCommandesByClient(idUser: number) {
+        this.deliveryService.getLivraisonUser(5).subscribe(
             (data) => {
-                this.commandes = data;
-                console.log(this.commandes)
-                for (let k of this.commandes) {
-                    this.deliveryService.getLivraisonesByCommande(k.idCommande).subscribe(
-                        (data1) => {
-                            this.livraisons = data1;
-                            console.log(this.livraisons)
-                        }
-                    )
-                }
+                this.livraisons = data;
+                console.log(this.livraisons)
             }
         );
     }
-    cancelCommande(commande: number){
 
-        this.commandeService.CancelCommande(commande);
+    cancelCommande(liv: Livraison) {
+
+        if (!liv.commande.etat) {
+            swal({
+                title: "Voulez vous cette commande?",
+                text: "cette commande va être délivré le plus tôt possible",
+                icon: "info",
+                buttons: ["Cancel", "approuvé"],
+                dangerMode: true,
+            })
+                .then((Upatecmd) => {
+                    if (Upatecmd) {
+                        liv.commande.etat = !liv.commande.etat;
+                        this.commandeService.CancelCommande(liv.commande).subscribe(
+                            () => this.getCommandesByClient(5)
+                        );
+                        swal("Commande va être délivré", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Merci pour votre confience");
+                    }
+                });
+        } else {
+            swal({
+                title: "Voulez vous annuler cette commande?",
+                text: "cette commande va être annuler ",
+                icon: "warning",
+                buttons: ["Cancel", "approuvé"],
+                dangerMode: true,
+            })
+                .then((Upatecmd) => {
+                    if (Upatecmd) {
+                        liv.commande.etat = !liv.commande.etat;
+                        this.commandeService.CancelCommande(liv.commande).subscribe(
+                            () => this.getCommandesByClient(5)
+                        );
+                        swal("Commande annulé avec succés", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Merci pour votre confience");
+                    }
+                });
+
+        }
+    }
+
+
+    showCmd(idcmd: number) {
+        this.commandeService.getCommandesByid(idcmd).subscribe(
+            data => this.inputCommande
+        )
     }
 
 }

@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {User} from "../../model/User";
 import { environment } from 'src/environments/environment';
+import {User} from "../../model/User";
 
 @Injectable({
     providedIn: 'root'

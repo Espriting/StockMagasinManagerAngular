@@ -6,6 +6,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import { SingleOrderComponent } from './single-order/single-order.component';
 import { MainMyOrderComponent } from './main-my-order/main-my-order.component';
+import { ShowOrderComponent } from './show-order/show-order.component';
+import {MDBRootModule} from "angular-bootstrap-md";
 
 
 
@@ -13,14 +15,16 @@ import { MainMyOrderComponent } from './main-my-order/main-my-order.component';
   declarations: [
       MainCommandeComponent,
       SingleOrderComponent,
-      MainMyOrderComponent
+      MainMyOrderComponent,
+      ShowOrderComponent
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        MDBRootModule
+    ]
 })
 export class CommandeModule { }

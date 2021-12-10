@@ -12,9 +12,6 @@ export class DataSharedStockService {
   public tokenUser=localStorage.getItem('tokenUser');
   public token=this.tokenUser!;
   constructor(private httpClient: HttpClient) { }
-
- 
-
   getStocksList(): Observable<any>{
     const headers=new HttpHeaders().set("Authorization",this.token);
     return this.httpClient.get(this.baseURL+'/getAllStock',{headers});

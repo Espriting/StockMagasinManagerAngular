@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from "rxjs";
+
 import {Commande} from "../../model/commande";
-import {User} from "../../model/user";
 
 
 @Injectable({
@@ -11,21 +10,24 @@ import {User} from "../../model/user";
 })
 export class CommandeService {
   private baseURL=environment.url+"commande";
-  private  baseUrlU = environment.url+"api/user"
-  private  token: string;
+  public tokenUser=localStorage.getItem('tokenUser');
+  public token=this.tokenUser!;
   constructor(private HttpClient: HttpClient) { }
 
   getCommandesByClient(idOfclient: number){
     return this.HttpClient.get<Commande[]>(this.baseURL+'/retrieve-commannde-client/'+idOfclient);
   }
   getCommandes(){
-  /*  const headers=new HttpHeaders().set("Authorization",this.token);*/
-    return this.HttpClient.get<Commande[]>(this.baseURL+'/retrieve-all-commanndes'/*,{headers}*/);
+    const headers=new HttpHeaders().set("Authorization",this.token);
+    return this.HttpClient.get<Commande[]>(this.baseURL+'/retrieve-all-commanndes',{headers});
   }
-  CancelCommande(commande: number){
+  CancelCommande(commande: Commande){
     console.log("hello")
-    return this.HttpClient.put(this.baseURL+'/modify-Commande/'+commande,'');
+    const headers=new HttpHeaders().set("Authorization", this.token);
+    return this.HttpClient.put(this.baseURL+'/modify-Commande',commande,{headers});
   }
-
+  getCommandesByid(idCmd: number){
+    return this.HttpClient.get<Commande>(this.baseURL+'/retrieve-commannde/'+idCmd);
+  }
 
 }
