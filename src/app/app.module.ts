@@ -14,6 +14,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import {FactureModule} from "./Facture-Management/facture/facture.module";
 import {CommonModule} from "@angular/common";
+import {AccompteModule} from "./Accompte-Management/accompte/accompte.module";
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import {CommonModule} from "@angular/common";
     HeaderComponent,
     ContentComponent,
     NotFoundComponent,
+    HomeComponent,
 
 
   ],
@@ -32,7 +36,10 @@ import {CommonModule} from "@angular/common";
     RouterModule,
     CommonModule,
     ProductModule,
-    FactureModule
+    FactureModule,
+    AccompteModule,
+    Ng2SearchPipeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

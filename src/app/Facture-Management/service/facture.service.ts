@@ -18,8 +18,8 @@ export class FactureService {
     getFactures(): Observable<any> {
         return this.HttpClient.get(this.baseURL + '/retrieve-all-factures');
     }
-    addFacture(facture:facture){
-        return this.HttpClient.post(this.baseURL+'/add-facture',JSON.stringify(facture));
+    addfacture(facture:facture){
+        return this.HttpClient.post(this.baseURL+'/add-facture',facture);
     }
     modifyFacture(facture: facture){
         return this.HttpClient.put(this.baseURL+'/modify-facture',facture);

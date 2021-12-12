@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {facture} from "src/app/model/facture";
+import {FactureService} from "../../service/facture.service";
 
 @Component({
   selector: 'app-add-facture',
@@ -7,7 +8,6 @@ import {facture} from "src/app/model/facture";
   styleUrls: ['./add-facture.component.css']
 })
 export class AddFactureComponent implements OnInit {
-  terms: Boolean = false;
   @Input() facture:facture;
   @Output() addEvent = new EventEmitter<facture>();
 

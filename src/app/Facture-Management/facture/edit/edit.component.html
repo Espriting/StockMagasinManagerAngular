@@ -1,0 +1,37 @@
+<div class="container">
+<form class="col g-3 needs-validation" #f="ngForm" (ngSubmit)="updateFacture()">
+    <div class="form-floating mb-3">
+        <select class="form-select" id="floatingSelect" name="active" aria-label="Floating label select example"
+                [(ngModel)]="facture.active">
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </select>
+        <label for="floatingSelect">Active</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input class="form-control" id="Input" name="dateFacture" type="date"
+             [(ngModel)]="facture.dateFacture" />
+        <label for="Input">Date</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input class="form-control" id="m" name="montantFacture" type="text" placeholder="code"
+               [(ngModel)]="facture.montantFacture" />
+        <label for="m">Bill amount</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input class="form-control" id="floatingInput" name="montantRemise" type="text" placeholder="Montant Remise"
+               minlength="3" [(ngModel)]="facture.montantRemise" />
+        <label for="floatingInput">Discount amount</label>
+    </div>
+
+
+
+
+
+    <div class="col-12">
+        <button class="btn btn-primary mb-3" type="submit" style="position: relative; left:82%;"
+                type="submit" data-bs-dismiss="modal">Save</button>
+    </div>
+</form>
+</div>

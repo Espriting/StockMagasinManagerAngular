@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { ListfactureComponent } from './listfacture/listfacture.component';
 import {CommonModule} from "@angular/common";
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {CommonModule} from "@angular/common";
         MainFactureComponent,
         AddFactureComponent,
         ListfactureComponent,
+        EditComponent,
 
     ],
     imports: [

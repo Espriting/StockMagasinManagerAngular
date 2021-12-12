@@ -1,0 +1,50 @@
+<form class="col g-3 needs-validation" #f="ngForm">
+    <div class="form-floating mb-3">
+        <input class="form-control" id="Input" name="advance" type="number"
+               #nprix="ngModel" required [(ngModel)]="accompte.advance" />
+        <label for="Input">Avance*:</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="nprix.touched&&nprix.invalid">
+        <div *ngIf="nprix.hasError('required')">Avance is required</div>
+        <div *ngIf="nprix.hasError('minlength')">Min Length is 2</div>
+
+    </div>
+    <div class="form-floating mb-3">
+        <input class="form-control" id="m" name="nom" type="text"  #ncode="ngModel" required
+               [(ngModel)]="accompte.nom" />
+        <label for="m">Nom*:</label>
+    </div>
+    <div class="alert alert-danger" *ngIf="ncode.invalid && ncode.touched">
+        <div *ngIf="ncode.hasError('required')"> Nom is a required field</div>
+        <div *ngIf="ncode.hasError('minlength')"> Nom minlength ies equal to 3</div>
+        <div *ngIf="ncode.hasError('pattern')"> error msg Pattern</div>
+    </div>
+    <div class="form-floating mb-3">
+        <input class="form-control" id="floatingInput" name="norms" type="number"  #nlib="ngModel" required
+               minlength="3" [(ngModel)]="accompte.norms" />
+        <label for="floatingInput">Nombre de mois*:</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="nlib.touched&&nlib.invalid">
+        <div *ngIf="nlib.hasError('required')">Nombre de mois is required</div>
+        <div *ngIf="nlib.hasError('minlength')">Nombre de mois 3</div>
+
+
+    </div>
+
+
+
+    <div class="form-floating mb-3">
+        <input class="form-control" id="floatingInput1" name="price" type="text"  #nm="ngModel" required
+               minlength="3" [(ngModel)]="accompte.price" />
+        <label for="floatingInput1">Montant*:</label>
+    </div>
+    <div class="font-alert text-danger mb-3" *ngIf="nm.touched&&nm.invalid">
+        <div *ngIf="nm.hasError('required')">Price is required</div>
+        <div *ngIf="nm.hasError('minlength')">Min Length is 3</div>
+
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary mb-3" type="submit" style="position: relative; left:82%;"
+                [disabled]="(f.invalid) " (click)="save()" data-bs-dismiss="modal">Save</button>
+    </div>
+</form>

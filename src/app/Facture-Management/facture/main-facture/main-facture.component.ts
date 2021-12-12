@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild, ElementRef} from '@angular/core';
 import {facture} from "src/app/model/facture";
 import {FactureService} from "../../service/facture.service";
-
 import swal from "sweetalert";
-
+import {Router} from "@angular/router";
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-main-facture',
   templateUrl: './main-facture.component.html',
@@ -13,19 +13,45 @@ export class MainFactureComponent implements OnInit {
     buttonvalue:string;
     factures:facture[];
     Inputfacture:facture;
+    showFormTemplate: boolean;
+    filterTerm: string;
+    inputSearch:any;
 
-
-  constructor(private factureService:FactureService) { }
-
+    constructor(private factureService:FactureService, private router: Router) { }
   ngOnInit(): void {
+      this.showFormTemplate = false;
       this.factureService.getFactures().subscribe(
           data => {
-              this.factures = data;
+              this.factures = data
+
               console.log(data)
-          }
+          },
+          (error)=>console.log(error),
+          ()=>{this.factures.forEach((fact)=>fact.dateFacture=new Date(fact.dateFacture))}
       );
+
       this.Inputfacture = new facture();
   }
+    fileName= 'ExcelSheet.xlsx';
+
+    exportexcel(): void
+    {
+        /* table id is passed over here */
+        let element = document.getElementById('excel-table');
+        const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+        /* save to file */
+        XLSX.writeFile(wb, this.fileName);
+
+    }
+    reload(){
+        swal("success!", "Bill updated!", "success");
+
+    }
     save(facture:facture): void {
 
         let i = this.factures.indexOf(facture);
@@ -39,7 +65,8 @@ export class MainFactureComponent implements OnInit {
         }
         else {
 
-            this.factureService.addFacture(facture).subscribe(() => this.factures.push(facture));
+            this.factureService.addfacture(facture).subscribe(() => this.factures.push(facture));
+            console.log(facture)
             swal("success!", "Bill added!", "success");
 
         }
@@ -52,8 +79,8 @@ export class MainFactureComponent implements OnInit {
 
     }
     update(facture:facture): void {
+        this.router.navigate(['update']);
 
-        this.Inputfacture= facture;
 
     }
 
