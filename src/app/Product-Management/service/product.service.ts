@@ -11,10 +11,13 @@ import { environment } from 'src/environments/environment';
 export class ProductService {
 
   private baseURL=environment.url+"produit";
+  public tokenUser=localStorage.getItem('tokenUser');
+  public token=this.tokenUser!;
   constructor(private HttpClient: HttpClient) { }
 
   getProductsList(): Observable<any>{
-    return this.HttpClient.get(this.baseURL+'/display');
+    const headers=new HttpHeaders().set("Authorization",this.token);
+    return this.HttpClient.get(this.baseURL+'/display',{headers});
   }
 
   addProduct(product: Product){
