@@ -9,7 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MainProductComponent } from './Product-Management/product/main-product/main-product.component';
 import { ProductModule } from './Product-Management/product/product.module';
 import { SingleProductComponent } from './Product-Management/product/single-product/single-product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -40,6 +40,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ProductModule,
     userModule,
     FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
   ],
   providers: [],
