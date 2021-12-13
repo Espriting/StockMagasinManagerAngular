@@ -1,17 +1,17 @@
-<form class="w-50 mx-auto" [formGroup]="validatingForm" (ngSubmit)="onSubmit()">
+<form class="w-50 mx-auto" [formGroup]="validatingForm" (ngSubmit)="save(validatingForm)">
   <div class="form-group">
     <label>libelle</label>
-    <input type="text" class="form-control" formControlName="libelle">
+    <input type="text" class="form-control" formControlName="libelle" [(ngModel)]="stock.libelleStock">
   </div>
   <div class="alert alert-danger" *ngIf="validatingForm.controls['libelle'].invalid && validatingForm.controls['libelle'].touched">
     <div *ngIf="validatingForm.controls['libelle'].hasError('required')">this is a required field</div>
-    <div *ngIf="validatingForm.controls['libelle'].hasError('minlength')">minlength is equal to 3</div>
+    <div *ngIf="validatingForm.controls['libelle'].hasError('minlength')">minlength is greater or equal of 16</div>
   </div>
   <div class="form group">
     <div class="form control">
       <div class="form-group">
         <label>Actual Quantity</label>
-        <input type="text" class="form-control" formControlName="qt">
+        <input type="text" class="form-control" formControlName="qt" [(ngModel)]="stock.qte">
       </div>
       <div class="alert alert-danger" *ngIf="validatingForm.controls['qt'].invalid && validatingForm.controls['qt'].touched">
         <div *ngIf="validatingForm.controls['qt'].hasError('required')">this is a required field</div>
@@ -19,23 +19,25 @@
       </div>
     </div>
     <div class="form control">
-      <div class="form-group" formGroupName="quantity">
+      <div class="form-group" >
         <label>Minimal Quantity</label>
-        <input type="text" class="form-control" formControlName="qt">
+        <input type="text" class="form-control" formControlName="qtmin" [(ngModel)]="stock.qteMin">
       </div>
       <div class="alert alert-danger" *ngIf="validatingForm.controls['qtmin'].invalid && validatingForm.controls['qtmin'].touched">
         <div *ngIf="validatingForm.controls['qtmin'].hasError('required')">this is a required field</div>
         <div *ngIf="validatingForm.controls['qtmin'].hasError('pattern')">the quantity should be number</div>
+        <div *ngIf="validatingForm.controls['qtmin'].hasError('qteMinRangeValidator')">the minimal quantity should be smaller than actual quantity</div>
       </div>
     </div>
   <div class="form group">
-    <select class="custom-select" [(ngModel)]="selectedOption" formControlName="productCode">
+    <label>select product</label>
+    <select class="form-select" formControlName="productCode">
       <option value="" disabled>Choose your city</option>
       <option *ngFor="let pro of listProduct" [value]="pro.code">{{pro.code}}</option>
    </select>
   </div>
   </div>
-  <button type="submit" class="btn btn-outline-primary" [hidden]="validatingForm.invalid">Login</button>
+  <button type="submit" class="btn btn-outline-primary" [disabled]="validatingForm.invalid" >Add Stock</button>
   &nbsp;
-  <button type="reset" class="btn btn-outline-warning">reset</button>
+  <button type="reset" class="btn btn-outline-warning" >reset</button>
 </form>
