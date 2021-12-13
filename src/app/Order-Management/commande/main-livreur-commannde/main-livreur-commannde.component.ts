@@ -12,7 +12,8 @@ export class MainLivreurCommanndeComponent implements OnInit {
     livraisonssss: Livraison[];
     inputtLivraison: Livraison;
      bt:boolean = true;
-
+    page:number = 1;
+    totalLength: number;
     constructor(public delieveryService: DeliveryService) {
     }
 
@@ -24,6 +25,7 @@ export class MainLivreurCommanndeComponent implements OnInit {
             }
 
         )
+        this.totalLength = this.livraisonssss.length;
 
     }
 

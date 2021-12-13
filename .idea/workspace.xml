@@ -3,16 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="cd90e1ce-d151-45fc-b04d-e8d48b48d496" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/commande.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/commande.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/service/delivery.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/service/delivery.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/User-Management/service/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/User-Management/service/user.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/mes-livraison/mes-livraison.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/mes-livraison/mes-livraison.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/mes-livraison/mes-livraison.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/mes-livraison/mes-livraison.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +122,7 @@
       <workItem from="1639209909706" duration="11361000" />
       <workItem from="1639305421758" duration="27473000" />
       <workItem from="1639338188838" duration="17467000" />
-      <workItem from="1639368869674" duration="25367000" />
+      <workItem from="1639368869674" duration="32843000" />
     </task>
     <servers />
   </component>

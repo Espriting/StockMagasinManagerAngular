@@ -6,6 +6,7 @@
             </div>
             <div class="col-8 col-sm-auto ms-auto text-end ps-0">
                 <div id="orders-actions">
+                    <input class="form-control mr-sm-2 col-2" type="search" placeholder="Search"  aria-label="Search" [(ngModel)]="recherche" (input)="Search()" >
                     <button class="btn btn-falcon-default btn-sm mx-2" href="#showCmd" data-bs-toggle="modal" aria-expanded="false" type="button" (click)="getfacture(5)">
                         <span
                             class="d-none d-sm-inline-block ms-1">Mes factures en attente
@@ -41,7 +42,11 @@
                 </tr>
                 </thead>
 
-                <tbody class="list" id="table-orders-body" *ngFor="let liv of livraisons">
+                <tbody class="list" id="table-orders-body" *ngFor="let liv of livraisons |
+                paginate: { itemsPerPage: 3,
+                 currentPage: page,
+                 totalItems:totalLength
+                 }">
                 <tr class="btn-reveal-trigger">
                     <td class="align-middle" style="width: 28px;">
                         <div class="form-check fs-0 mb-0 d-flex align-items-center">
@@ -224,12 +229,9 @@
         </div>
     </div>
     <div class="card-footer">
-        <div class="d-flex align-items-center justify-content-center">
-            <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous"
-                    data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
-            <ul class="pagination mb-0"></ul>
-            <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next">
-                <span class="fas fa-chevron-right">             </span></button>
+        <div class="card-footer">
+            <div class="d-flex align-items-center justify-content-center">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+            </div>
         </div>
-    </div>
-</div>
+    </div></div>

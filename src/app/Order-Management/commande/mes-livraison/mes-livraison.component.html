@@ -1,10 +1,18 @@
 <div class="row ">
-    <app-card-command *ngFor="let liv of meslivraisons"
+    <app-card-command *ngFor="let liv of meslivraisons  |
+                paginate: { itemsPerPage: 3,
+                 currentPage: page,
+                 totalItems:totalLength
+                 }"
                       [showButtonLiv]="bt"
                       [livraison]="liv"
                       (updateNotifCmd)="update($event)"
 
                       class="col-md-4 "
     ></app-card-command>
-
+    <div class="card-footer">
+        <div class="d-flex align-items-center justify-content-center">
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+    </div>
 </div>

@@ -18,9 +18,10 @@ import { RouterModule } from '@angular/router';
 import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stock.component';
 import { AddProductToStockComponent } from './StockManagement/Stock/add-product-to-stock/add-product-to-stock.component';
 import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
-import {LoginComponent} from "./User-Management/user/login/login.component";
 import {userModule} from "./User-Management/user/user.module";
 import { CommandeModule } from './Order-Management/commande/commande.module';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,9 @@ import { CommandeModule } from './Order-Management/commande/commande.module';
     ProductModule,
     CommandeModule,
     userModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

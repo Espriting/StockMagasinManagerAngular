@@ -11,6 +11,7 @@ import {MDBRootModule} from "angular-bootstrap-md";
 import { MainLivreurCommanndeComponent } from './main-livreur-commannde/main-livreur-commannde.component';
 import { CardCommandComponent } from './card-command/card-command.component';
 import { MesLivraisonComponent } from './mes-livraison/mes-livraison.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 
@@ -31,7 +32,8 @@ import { MesLivraisonComponent } from './mes-livraison/mes-livraison.component';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        MDBRootModule
+        MDBRootModule,
+        NgxPaginationModule
     ]
 })
 export class CommandeModule { }

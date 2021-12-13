@@ -10,6 +10,8 @@ import {DeliveryService} from "../../service/delivery.service";
 export class MesLivraisonComponent implements OnInit {
   meslivraisons: Livraison[];
   inputtLivraison: Livraison;
+  page:number = 1;
+  totalLength: number;
   bt:boolean = false;
 
   constructor(public delieveryService: DeliveryService) { }
@@ -21,6 +23,7 @@ export class MesLivraisonComponent implements OnInit {
         }
 
     )
+    this.totalLength = this.meslivraisons.length;
   }
   update(livrarison: Livraison): void{
     let i = this.meslivraisons.indexOf(livrarison);

@@ -11,10 +11,15 @@ import swal from "sweetalert";
 })
 export class MainCommandeComponent implements OnInit {
     livraisons: Livraison[];
+    page:number = 1;
+    totalLength: number;
+    recherche: string;
+
     constructor(private commandeService: CommandeService, private deliveryService: DeliveryService) {
     }
     ngOnInit(): void {
         this.getCommandes();
+        this.totalLength = this.livraisons.length;
     }
 
     getCommandes() {
@@ -28,5 +33,15 @@ export class MainCommandeComponent implements OnInit {
         swal("Commande a été annulé ", {
             icon: "error",
         });
+    }
+    Search(){
+        if (this.recherche !=""){
+            this.livraisons =this.livraisons.filter( res =>{
+                return res.adressse.toLocaleLowerCase().match(this.recherche.toLocaleLowerCase())
+            })
+        }else{
+            this.ngOnInit()
+        }
+
     }
 }

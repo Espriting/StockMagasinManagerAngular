@@ -25,16 +25,28 @@ export class CardCommandComponent implements OnInit {
     console.log(this.livraison)
   }
   updateNotif(){
-    this.livraison.etat = !this.livraison.etat;
-    this.userService.getUserById(8).subscribe(
-        (data)=>{
-          this.user = data;
+      if(!this.livraison.etat){
+          this.livraison.etat = !this.livraison.etat;
+          this.userService.getUserById(8).subscribe(
+              (data)=>{
+                  this.user = data;
+                  this.livraison.date = new Date();
+                  this.livraison.user = this.user;
+                  this.deliveryService.updateLivraioson(this.livraison).subscribe()
+                  this.updateNotifCmd.emit(this.livraison)
+              }
+          )
+      }else {
+          this.livraison.etat = !this.livraison.etat;
+          this.user= new User();
+          this.livraison.user =this.user;
           this.livraison.date = new Date();
-          this.livraison.user = this.user;
           this.deliveryService.updateLivraioson(this.livraison).subscribe()
-            this.updateNotifCmd.emit(this.livraison)
-        }
-    )
+          this.updateNotifCmd.emit(this.livraison)
+      }
+
+
+
 
 
 

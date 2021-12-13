@@ -18,7 +18,9 @@ export class MainMyOrderComponent implements OnInit {
     user: User;
     livraisons: Livraison[];
     mesfactures: Facture[];
-
+    recherche: string;
+    page:number = 1;
+    totalLength: number;
     livFact: Livraison[];
     inputCommande: Commande;
     factureAff: Facture[]=[];
@@ -27,6 +29,7 @@ export class MainMyOrderComponent implements OnInit {
 
     ngOnInit(): void {
         this.getCommandesByClient(5);
+        this.totalLength = this.livraisons.length;
     }
 
     getCommandesByClient(idUser: number) {
@@ -114,6 +117,16 @@ export class MainMyOrderComponent implements OnInit {
             }
         );
 
+
+    }
+    Search(){
+        if (this.recherche !=""){
+            this.livraisons =this.livraisons.filter( res =>{
+                return res.adressse.toLocaleLowerCase().match(this.recherche.toLocaleLowerCase())
+            })
+        }else{
+            this.ngOnInit()
+        }
 
     }
 }
