@@ -6,6 +6,8 @@ import {Livraison} from "../../../model/livraison";
 import {User} from "../../../model/User";
 import {Commande} from "../../../model/commande";
 import swal from "sweetalert";
+import {userModule} from "../../../User-Management/user/user.module";
+import {Facture} from "../../../model/facture";
 
 @Component({
     selector: 'app-main-my-order',
@@ -15,8 +17,11 @@ import swal from "sweetalert";
 export class MainMyOrderComponent implements OnInit {
     user: User;
     livraisons: Livraison[];
-    inputCommande: Commande;
+    mesfactures: Facture[];
 
+    livFact: Livraison[];
+    inputCommande: Commande;
+    factureAff: Facture[]=[];
     constructor(private commandeService: CommandeService, private deliveryService: DeliveryService, private userService: UserService) {
     }
 
@@ -88,4 +93,27 @@ export class MainMyOrderComponent implements OnInit {
         )
     }
 
+    getfacture(iduser: number) {
+        this.commandeService.getfacturesByidUser(5).subscribe(
+            (data) => {
+                this.mesfactures = data;
+                for (let fac of this.mesfactures) {
+
+                    this.commandeService.getfacturesByCommande(fac.idFacture).subscribe(
+                        (data1) => {
+                            this.inputCommande = data1;
+
+                            if (this.inputCommande === null) {
+                                console.log(fac.idFacture);
+                                this.factureAff.push(fac)
+                                console.log(this.factureAff)
+                            }
+                        }
+                    )
+                }
+            }
+        );
+
+
+    }
 }

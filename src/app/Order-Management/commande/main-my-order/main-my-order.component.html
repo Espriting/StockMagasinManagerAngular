@@ -1,15 +1,19 @@
-<div class="card mb-3" id="ordersTable"
-     data-list='{"valueNames":["order","date","address","status","amount"],"page":10,"pagination":true}'>
+<div class="card mb-3" id="ordersTable" data-list='{"valueNames":["Commande","Date","address","status","Montant","Action"],"page":10,"pagination":true}'>
     <div class="card-header">
         <div class="row flex-between-center">
             <div class="col-4 col-sm-auto d-flex align-items-center pe-0">
-                <h1 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Commandes</h1>
+                <h1 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Mes commandes</h1>
             </div>
             <div class="col-8 col-sm-auto ms-auto text-end ps-0">
                 <div id="orders-actions">
-                    <button class="btn btn-falcon-default btn-sm mx-2" type="button"><span class="fas fa-filter"
-                                                                                           data-fa-transform="shrink-3 down-2"></span><span
-                            class="d-none d-sm-inline-block ms-1">Filter</span></button>
+                    <button class="btn btn-falcon-default btn-sm mx-2" href="#showCmd" data-bs-toggle="modal" aria-expanded="false" type="button" (click)="getfacture(5)">
+                        <span
+                            class="d-none d-sm-inline-block ms-1">Mes factures en attente
+                        </span>
+                    </button>
+                    <div class="modal fade" id="showCmd" tabindex="-1" role="dialog" aria-labelledby="authentication-modal-label" aria-hidden="true">
+                       <app-show-order [mesfactures]="factureAff"></app-show-order>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,7 +58,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content ">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel">Commande N°: {{liv.commande.idCommande}}</h4>
+                                            <h4 class="modal-title" >Commande N°: {{liv.commande.idCommande}}</h4>
                                             <h6>Client:<br> {{liv.commande.factures.user.prenom}} {{liv.commande.factures.user.nom}}</h6>
                                         </div>
                                         <div class="modal-body">

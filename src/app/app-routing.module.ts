@@ -15,12 +15,21 @@ import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stoc
 import { MainCommandeComponent } from './Order-Management/commande/main-commande/main-commande.component';
 import { MainMyOrderComponent } from './Order-Management/commande/main-my-order/main-my-order.component';
 import {MDBBootstrapModule} from "angular-bootstrap-md";
+import {ShowOrderComponent} from "./Order-Management/commande/show-order/show-order.component";
+import {SingleOrderComponent} from "./Order-Management/commande/single-order/single-order.component";
+import {MainLivreurCommanndeComponent} from "./Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component";
 
 
 const routes: Routes = [
     {path: 'products', component: MainProductComponent},
     {path: 'commandes', component:MainCommandeComponent},
+    {path: 'showCmd', component:ShowOrderComponent},
+    {path: 'addCmd/:id', component:SingleOrderComponent},
     {path: 'mescommandes', component:MainMyOrderComponent},
+    {path: 'Livre', component:MainLivreurCommanndeComponent},
+/*
+    {path: 'MesLivraisons', component:MainMyOrderComponent},
+*/
     {path: 'details/:id', component: ProductDetailsComponent},
     {path: 'login', component: LoginComponent},
     {path: 'forget', component: UserForgetComponent},

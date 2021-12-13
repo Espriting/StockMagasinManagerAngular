@@ -2,31 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd90e1ce-d151-45fc-b04d-e8d48b48d496" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/card-command/card-command.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.doc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/commande.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/commande.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-commande/main-commande.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/main-my-order/main-my-order.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/show-order/show-order.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/commande/single-order/single-order.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/service/commande.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/service/commande.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Order-Management/service/delivery.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Order-Management/service/delivery.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/StockManagement/Service/data-shared-stock.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/StockManagement/Service/data-shared-stock.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/User-Management/service/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/User-Management/service/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/User-Management/user/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/User-Management/user/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/commande.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/commande.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/facture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/facture.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/livraison.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/livraison.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/menu.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +46,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="21dOiERvrkLa7l4DVrrsn7OCU7O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -121,6 +128,11 @@
       <workItem from="1638982147184" duration="9416000" />
       <workItem from="1639043626246" duration="18095000" />
       <workItem from="1639079608739" duration="1398000" />
+      <workItem from="1639130059607" duration="25015000" />
+      <workItem from="1639209909706" duration="11361000" />
+      <workItem from="1639305421758" duration="27473000" />
+      <workItem from="1639338188838" duration="17467000" />
+      <workItem from="1639368869674" duration="15804000" />
     </task>
     <servers />
   </component>
