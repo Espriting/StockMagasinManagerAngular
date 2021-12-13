@@ -1,7 +1,7 @@
 
                     <div class="container">
                       <div>
-                        <app-add-stock *ngIf="displayform" (addEvent)="addItem($event)" ></app-add-stock>
+                        <app-add-stock *ngIf="displayform" (addEvent)="addItem($event)" [stock]="inputStock" ></app-add-stock>
                       </div>
                       <div class="card mb-3">
                         <div class="card-header">
@@ -11,10 +11,11 @@
                                 <div class="row flex-between-end">
                                   <div class="col-auto ms-auto">
                                     <div class="nav nav-pills nav-pills-falcon flex-grow-1 mt-2" role="tablist">
-                                        <button  class="btn btn-outline-primary pull-right" (click)="displayFormTemplate()">add stock</button>
-                                      <input type="text" class="form-control col-sm" [(ngModel)]="inputSearch" (ngModelChange)="searchStock()" placeholder="Rechercher.."/>
-                                      <button class="btn btn-sm"  type="button" role="tab"  >Rechercher</button>
-                                    </div>
+                                      <button  class="btn btn-outline-danger pull-right"  (click)="filter('exausted')">Exausted stock</button>
+                                      <button  class="btn btn-outline-success pull-right" (click)="filter('noExausted')">NO exausted stock</button> 
+                                      <button  class="btn btn-outline-success pull-right" (click)="filter('All')">All stock</button> 
+                                      <button  class="btn btn-outline-primary pull-right" (click)="displayFormTemplate()">add stock</button>
+                                      <input type="text" class="form-control col-sm" [(ngModel)]="inputSearch" (ngModelChange)="searchStock()" placeholder="Rechercher.."/>                                    </div>
                                     
                                   </div>
                                 </div>
@@ -28,12 +29,18 @@
                           </th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr *ngFor="let stock of listStocks; let i = index">
+                        <tbody *ngFor="let stock of listStocks; let i = index">
+                        <tr  ng-class="{'exhaustedline': stock.qteMin>=stock.qte}">
                           <th scope="row" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{stock.idStock}}</th>
                           <th scope="row" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{stock.libelleStock}}</th>
                           <th scope="row" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{stock.qte}}</th>
                           <th scope="row" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">{{stock.qteMin}}</th>
+                          <th scope="row" *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex">
+                            <div>
+                              <button class="btn p-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" (click)="editStock(stock)"><span class="text-500 fas fa-edit"></span></button>
+                              <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" (click)="deleteStock(stock.idStock)"><span class="text-500 fas fa-trash-alt" ></span></button>
+                            </div>
+                          </th>
                         </tr>
                         </tbody>
                         <tfoot class="grey lighten-5 w-100">
