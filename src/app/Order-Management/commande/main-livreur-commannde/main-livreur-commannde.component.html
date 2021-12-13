@@ -1,14 +1,9 @@
-<!--
-<app-product *ngFor="let currentProduct of listProduct"
-             [product]="currentProduct"
-             (notification)="like($event)"
-             (deleteNotifEvent)="delete($event)"
-             (updateNotifEvent)="update($event)"
-             class="col-md-3">
-</app-product>-->
+
 <div class="row">
 <app-card-command *ngFor="let liv of livraisonssss"
+                  [showButtonLiv]="bt"
                   [livraison]="liv"
+                  (updateNotifCmd)="update($event)"
 
                   class="col-md-4"
 ></app-card-command></div>

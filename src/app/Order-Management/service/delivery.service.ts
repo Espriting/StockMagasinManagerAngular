@@ -33,4 +33,13 @@ export class DeliveryService {
     const headers=new HttpHeaders().set("Authorization", this.token);
     return this.HttpClient.get<Livraison[]>(this.baseURL+'/retrieve-Livraison-etat/',{headers});
   }
+  updateLivraioson(livraison: Livraison){
+    const headers=new HttpHeaders().set("Authorization", this.token);
+    return this.HttpClient.put(this.baseURL+'/modify-Livraison/',livraison,{headers});
+
+  }
+  getLivraisonLivreur(idLivreur: number){
+    const headers=new HttpHeaders().set("Authorization", this.token);
+    return this.HttpClient.get<Livraison[]>(this.baseURL+'/retrieve-Livraison-livreur/'+idLivreur ,{headers});
+  }
 }

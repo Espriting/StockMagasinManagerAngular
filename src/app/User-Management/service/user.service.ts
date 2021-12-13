@@ -40,7 +40,8 @@ export class UserService {
     }
 
     getUserById(id: number) {
-        return this.HttpClient.get(this.baseURL + '/getUserById/${id}' + id);
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.get<User>(this.baseURL + '/getUserById/' + id,{headers});
     }
 
     login(user: User) {

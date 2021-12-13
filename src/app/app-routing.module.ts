@@ -18,6 +18,7 @@ import {MDBBootstrapModule} from "angular-bootstrap-md";
 import {ShowOrderComponent} from "./Order-Management/commande/show-order/show-order.component";
 import {SingleOrderComponent} from "./Order-Management/commande/single-order/single-order.component";
 import {MainLivreurCommanndeComponent} from "./Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component";
+import {MesLivraisonComponent} from "./Order-Management/commande/mes-livraison/mes-livraison.component";
 
 
 const routes: Routes = [
@@ -27,9 +28,7 @@ const routes: Routes = [
     {path: 'addCmd/:id', component:SingleOrderComponent},
     {path: 'mescommandes', component:MainMyOrderComponent},
     {path: 'Livre', component:MainLivreurCommanndeComponent},
-/*
-    {path: 'MesLivraisons', component:MainMyOrderComponent},
-*/
+    {path: 'MesLivraisons', component:MesLivraisonComponent},
     {path: 'details/:id', component: ProductDetailsComponent},
     {path: 'login', component: LoginComponent},
     {path: 'forget', component: UserForgetComponent},

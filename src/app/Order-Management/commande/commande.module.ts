@@ -10,6 +10,7 @@ import { ShowOrderComponent } from './show-order/show-order.component';
 import {MDBRootModule} from "angular-bootstrap-md";
 import { MainLivreurCommanndeComponent } from './main-livreur-commannde/main-livreur-commannde.component';
 import { CardCommandComponent } from './card-command/card-command.component';
+import { MesLivraisonComponent } from './mes-livraison/mes-livraison.component';
 
 
 
@@ -21,7 +22,8 @@ import { CardCommandComponent } from './card-command/card-command.component';
 
       ShowOrderComponent,
        MainLivreurCommanndeComponent,
-       CardCommandComponent
+       CardCommandComponent,
+       MesLivraisonComponent
   ],
     imports: [
         CommonModule,
