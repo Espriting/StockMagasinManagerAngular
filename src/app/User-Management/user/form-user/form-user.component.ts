@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../../../model/User";
 import {AuthService} from "../../service/auth.service";
 import {UserService} from "../../service/user.service";
-import {roles} from "../../../model/roles";
+import {Role} from "../../../model/Role";
 import {Router} from "@angular/router";
 import {DatePipe, formatDate} from '@angular/common';
 
@@ -18,7 +18,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class FormUserComponent implements OnInit {
   registrationForm: FormGroup;
   user = new User();
-  newrole = new roles();
+  newrole = new Role();
   isRegistered = false;
   submitted = false;
   currentDate = new Date();

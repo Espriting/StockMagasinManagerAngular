@@ -22,6 +22,7 @@ export class AuthService {
     }
 
 
+
     login(user: User) {
         return this.http.post<User>(this.apiURL + '/login', user,
             {observe: 'response'});
@@ -66,7 +67,7 @@ export class AuthService {
         };
         console.log(body.toString())
         httpOptions.headers =httpOptions.headers.set('Content-type', 'application/x-www-form-urlencoded');
-        return this.http.post('http://localhost:8117/StockMagasinManager/login',body.toString(),httpOptions);
+        return this.http.post('http://localhost:8118/StockMagasinManager/login',body.toString(),httpOptions);
 
     }
     isAdmin(): Boolean {
@@ -77,6 +78,5 @@ export class AuthService {
     getToken() {
         return localStorage.getItem('access_token');
     }
-
 
 }

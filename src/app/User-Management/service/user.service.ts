@@ -29,9 +29,9 @@ export class UserService {
         return this.HttpClient.post(this.baseURL + '/users/save', user,{headers});
     }
 
-    updateUser(user: User,id:number):Observable<any> {
+    updateUser(user: User, id:number) {
         const headers=new HttpHeaders().set("Authorization",this.token);
-        return this.HttpClient.put(this.baseURL + '/updateUser/${id}',user,{headers, responseType:'text' as 'json'});
+        return this.HttpClient.put(this.baseURL + '/updateUser/'+id,user,{headers, responseType:'text' as 'json'});
     }
 
     deleteUser(id: number) {
