@@ -9,7 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MainProductComponent } from './Product-Management/product/main-product/main-product.component';
 import { ProductModule } from './Product-Management/product/product.module';
 import { SingleProductComponent } from './Product-Management/product/single-product/single-product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -19,6 +19,7 @@ import { AddProductToStockComponent } from './StockManagement/Stock/add-product-
 import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
 import {LoginComponent} from "./User-Management/user/login/login.component";
 import {userModule} from "./User-Management/user/user.module";
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,9 @@ import {userModule} from "./User-Management/user/user.module";
     CommonModule,
     ProductModule,
     userModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

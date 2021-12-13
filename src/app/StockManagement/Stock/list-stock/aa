@@ -1,0 +1,70 @@
+            <div>
+              <app-add-stock *ngIf="displayform" (addEvent)="addItem($event)" ></app-add-stock>
+            </div>
+            <div class="card mb-3">
+              <div class="card-header">
+                <div class="row flex-between-end">
+                  <div class="col-auto ms-auto">
+                    <div class="card-header border-bottom">
+                      <div class="row flex-between-end">
+                        <div class="col-auto ms-auto">
+                          <div class="nav nav-pills nav-pills-falcon flex-grow-1 mt-2" role="tablist">
+                              <button  class="btn btn-outline-primary pull-right" (click)="displayFormTemplate()">add stock</button>
+                            <input type="text" class="form-control col-sm" [(ngModel)]="inputSearch" (ngModelChange)="searchStock()" placeholder="Rechercher.."/>
+                            <button class="btn btn-sm"  type="button" role="tab"  >Rechercher</button>
+                          </div>
+                          
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card-body pt-0">
+                <div class="tab-content">
+                  <div class="tab-pane preview-tab-pane active" role="tabpanel" aria-labelledby="tab-dom-9a041c94-3f0f-477c-873a-3119478a90cd" id="dom-9a041c94-3f0f-477c-873a-3119478a90cd">
+                    <div id="tableExample2" data-list='{"valueNames":["idStock","libelle","Quantité actuelle","Quantité Minimal"],"page":5,"pagination":true}'>
+                      <div class="table-responsive scrollbar">
+                        <table class="table table-bordered table-striped fs--1 mb-0">
+                          <thead class="bg-200 text-900">
+                            <tr>
+                              <th scope="col">idStock</th>
+                              <th scope="col">libelle</th>
+                              <th scope="col">Quantité actuelle</th>
+                              <th scope="col">Quantité Minimal</th>
+                              <th scope="col">List des Produits</th>
+                              <th class="text-end" scope="col">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody class="list">
+                            <tr *ngFor="let stock of listStocks">
+                              <td>{{stock.idStock}}</td>
+                              <td>{{stock.libelleStock}}</td>
+                              <td>{{stock.qte}}</td>
+                              <td>{{stock.qteMin}}</td>
+                              <td *ngFor="let produit of stock.produit">
+                                <button class="btn btn-outline-sucess" *ngIf="produit.libelle">{{produit.libelle}}</button>
+                                <button class="btn btn-outline-sucess" *ngIf="!produit.libelle">not have product</button>
+
+                              </td>
+                              
+                              <td class="text-end">
+                                <div>
+                                  <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" ><span class="text-500 fas fa-edit"></span></button>
+                                  <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" (click)="deleteStock(stock.idStock)"><span class="text-500 fas fa-trash-alt" ></span></button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="d-flex justify-content-center mt-3">
+                        <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous" data-list-pagination="prev"><span class="fas fa-chevron-left"></span></button>
+                        <ul class="pagination mb-0"></ul>
+                        <button class="btn btn-sm btn-falcon-default ms-1" type="button" title="Next" data-list-pagination="next"><span class="fas fa-chevron-right"> </span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane code-tab-pane" role="tabpanel" aria-labelledby="tab-dom-4cdf0ec4-d324-425d-aa81-957dbe5cec50" id="dom-4cdf0ec4-d324-425d-aa81-957dbe5cec50">
+
+                    
