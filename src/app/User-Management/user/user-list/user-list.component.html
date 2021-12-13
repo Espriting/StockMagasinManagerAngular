@@ -2,24 +2,20 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Last name</th>
             <th scope="col">BirthDate</th>
             <th scope="col">Email</th>
-            <th scope="col">Role</th>
 
             <th class="text-end" scope="col">Actions</th>
         </tr>
         </thead>
         <tbody *ngFor="let user of users">
         <tr>
-            <td>{{user.id}}</td>
             <td>{{user.nom}}</td>
             <td>{{user.prenom}}</td>
             <td>{{user.dateNaissance| date:'dd/MM/yyyy' }}</td>
             <td>{{user.email}}</td>
-            <td>{{user.roles[0].nom}}</td>
             <td class="text-end">
                 <div>
 
@@ -32,6 +28,7 @@
             </td>
         </tr>
         </tbody>
+
 
     </table>
 </div>

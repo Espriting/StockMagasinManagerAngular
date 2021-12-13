@@ -30,8 +30,12 @@ export class UserUpdateComponent implements OnInit {
 
   }
 
-  updateUser() {
-
+  updateUser(id:number) {
+    this.userService.updateUser(this.currentUser,this.currentUser.id).subscribe(() => {
+          this.router.navigate(['/users']);
+        },(error) => { alert("Problème lors de la modification !"); }
+    );
+    this.userService.getUsersList();
   }
 
   }

@@ -1,51 +1,39 @@
-<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#error-modal">Edit Your informations</button>
-<div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
-        <div class="modal-content position-relative">
-            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
-                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0">
-                <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
-                    <h4 class="mb-1" id="modalExampleDemoLabel">Add a new illustration </h4>
-                </div>
-                <div class="p-4 pb-0">
-                    <form>
-                        <div class="mb-3">
-                            <label class="col-form-label" for="recipient-name">Name:</label>
-                            <input class="form-control" id="recipient-name" type="text" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="col-form-label" for="recipient-name">Lastname:</label>
-                            <input class="form-control" id="recipient-lastname" type="text" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="col-form-label" for="recipient-name">Email:</label>
-                            <input class="form-control" id="recipient-email" type="text" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="col-form-label" for="recipient-name">Date Of Birth:</label>
-                            <input class="form-control" id="recipient-dob" type="date" />
-                        </div>
-
-
-
-
-
-                        <div class="mb-3">
-                            <label class="col-form-label" for="recipient-name">Password:</label>
-                            <input class="form-control" id="recipient-pwd" type="text" />
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button" (click)="updateUser()">Save </button>
-            </div>
-        </div>
+<form >
+    <div  class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID User</label>
+        <input type="text" [(ngModel)]="currentUser.id" name="id" class="form-control">
     </div>
-</div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5" >
+        <label >Nom </label>
+        <input type="text"[(ngModel)]= "currentUser.nom" name="nom" class="form-control">
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5">
+        <label >Prenom</label>
+        <input type="text" [(ngModel)]= "currentUser.prenom" name="prenom" class="form-control">
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5" >
+        <label>Email</label>
+        <input type="text" [(ngModel)]= "currentUser.email" name="email" class="form-control">
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5" >
+        <label >Password</label>
+        <input type="text" [(ngModel)]= "currentUser.password" name="password" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date création</label>
+        <input type="date"
+               [ngModel]= "currentUser.dateNaissance | date: 'yyyy-MM-dd'"
+               (ngModelChange)=" currentUser.dateNaissance= $event"
+               name="dateCreation" class="form-control">
+    </div>
+
+    <div class="mt-2">
+        <button type="submit" (click)="updateUser(currentUser.id)" class="btn btn-success">Modifier</button>
+
+    </div>
+</form>

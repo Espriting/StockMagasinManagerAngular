@@ -22,6 +22,7 @@ export class AuthService {
     }
 
 
+
     login(user: User) {
         return this.http.post<User>(this.apiURL + '/login', user,
             {observe: 'response'});
@@ -77,6 +78,5 @@ export class AuthService {
     getToken() {
         return localStorage.getItem('access_token');
     }
-
 
 }
