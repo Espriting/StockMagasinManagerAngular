@@ -6,7 +6,7 @@
             <th scope="col">Last name</th>
             <th scope="col">BirthDate</th>
             <th scope="col">Email</th>
-            <th scope="col">Role</th>
+
             <th class="text-end" scope="col">Actions</th>
         </tr>
         </thead>
@@ -16,19 +16,19 @@
             <td>{{user.prenom}}</td>
             <td>{{user.dateNaissance| date:'dd/MM/yyyy' }}</td>
             <td>{{user.email}}</td>
-            <td>{{user.roles[0].nom}}</td>
             <td class="text-end">
                 <div>
 
 
 
 
-                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" [routerLink]="['/update',user.id]"><span class="text-500 fas fa-edit"></span></button>
+                    <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" [routerLink]="['/update',user.id]" ><span class="text-500 fas fa-edit"></span></button>
                     <button class="btn p-0 ms-2" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" (click)="delete(user)"><span class="text-500 fas fa-trash-alt"></span></button>
                 </div>
             </td>
         </tr>
         </tbody>
+
 
     </table>
 </div>

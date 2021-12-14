@@ -29,15 +29,6 @@ export class UserListComponent implements OnInit {
         );
     }
 
-    // supprimerUser(u: User) {
-    //     console.log("suppppppppppppppppppppppppppppp supprimé");
-    //     let conf = confirm("Etes-vous sûr ?");
-    //     if (conf)
-    //         this.userService.deleteUser(u.id).subscribe(() => {
-    //             console.log("produit supprimé");
-    //             this.SuprimerProduitDuTableau(u);
-    //         });
-    // }
 
 
     delete(user: User) {
@@ -50,15 +41,6 @@ export class UserListComponent implements OnInit {
                 console.log(i)
             });
     }
-
-
-    // SuprimerProduitDuTableau(usr: User) {
-    //     this.users.forEach((cur, index) => {
-    //         if (usr.id === cur.id) {
-    //             this.users.splice(index, 1);
-    //         }
-    //     });
-    // }
 
 
 }

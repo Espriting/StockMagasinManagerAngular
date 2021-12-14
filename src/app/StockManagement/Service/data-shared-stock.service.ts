@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Stock } from 'src/app/model/Stock';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +11,7 @@ export class DataSharedStockService {
   private baseURL=environment.url+"api/stock";
   public tokenUser=localStorage.getItem('tokenUser');
   public token=this.tokenUser!;
+  public listFiltredStock:Stock[];
   constructor(private httpClient: HttpClient) { }
   getStocksList(): Observable<any>{
     const headers=new HttpHeaders().set("Authorization",this.token);
@@ -18,7 +19,6 @@ export class DataSharedStockService {
   }
   addStock(stock:Stock){
     const headers=new HttpHeaders().set("Authorization",this.token);
-    console.log(stock);
     return this.httpClient.post(this.baseURL+'/addStock',stock,{headers});
     
   }
@@ -28,17 +28,32 @@ export class DataSharedStockService {
     
   }
   deleteStock(idStock: number){
-    console.log(idStock);
     const headers=new HttpHeaders().set("Authorization",this.token);
-    return this.httpClient.delete(this.baseURL+'/deleteStock/'+idStock,{headers, responseType:'text' as 'json'});
+    return this.httpClient.delete(this.baseURL+'/deleteStock/'+idStock,{headers});
   }
 
   getStockById(idStock: number){
     const headers=new HttpHeaders().set("Authorization",this.token);
     return this.httpClient.get(this.baseURL+'/getStockById/'+idStock,{headers, responseType:'text' as 'json'});
   }
-  getexhaustStoc(){
+  getexhaustStock(): Observable<any>{
     const headers=new HttpHeaders().set("Authorization",this.token);
-    return this.httpClient.get(this.baseURL+'/exhaustStock',{headers, responseType:'text' as 'json'});
+    return this.httpClient.get(this.baseURL+'/exhaustStock',{headers});
+  }
+  filterData(criteria:String): Observable<any>{
+  
+    this.getStocksList().subscribe(
+      (data)=>this.listFiltredStock=data
+      )
+      if(criteria==="noExausted"){
+        return of(this.listFiltredStock.filter((stock_elem)=>stock_elem.qteMin<stock_elem.qte));
+ 
+      }else if(criteria==="All"){
+        return this.getStocksList();
+
+      }
+      else{
+        return this.getexhaustStock() ;
+      }
   }
 }

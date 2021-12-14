@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import { environment } from 'src/environments/environment';
+
 import {User} from "../../model/User";
+
+import {pipe, throwError} from "rxjs";
+import {catchError, map} from "rxjs/operators";
 
 @Injectable({
     providedIn: 'root'
@@ -20,10 +24,10 @@ export class AuthService {
     }
 
 
+
     login(user: User) {
         return this.http.post<User>(this.apiURL + '/login', user,
             {observe: 'response'});
-
     }
 
     saveToken(access_token: string) {
@@ -54,16 +58,6 @@ export class AuthService {
         return this.helper.isTokenExpired(this.token);
     }
 
-    setLoggedUserFromLocalStorage(login: string) {
-        this.loggedUser = login;
-        this.isloggedIn = true;
-        this.getUserRoles(login);
-    }
-
-    getUserRoles(login: string) {
-
-    }
-
     generatetoken(nom:any, password:any){
         let body = new URLSearchParams();
         body.set('nom',nom);
@@ -86,6 +80,5 @@ export class AuthService {
     getToken() {
         return localStorage.getItem('access_token');
     }
-
 
 }

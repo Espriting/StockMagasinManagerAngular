@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../../../model/User";
-import {Feedback} from "../../../model/feedback";
+import {AuthService} from "../../service/auth.service";
+import {UserService} from "../../service/user.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-update',
@@ -9,21 +11,32 @@ import {Feedback} from "../../../model/feedback";
 })
 export class UserUpdateComponent implements OnInit {
 
-  users: User[];
-  user: User = new User();
-  constructor() { }
+  currentUser = new User();
+
+  constructor(public authService: AuthService,
+              private userService: UserService,
+              private router :Router,
+              private activatedRoute: ActivatedRoute
+  ) {
+  }
 
   ngOnInit(): void {
     localStorage.getItem('access_token');
+    this.userService.getUserById(this.activatedRoute.snapshot.params.id).
+    subscribe( prod =>{
+      if (prod instanceof User) {
+        this.currentUser = prod;
+      } });
 
   }
-  updateUser(user:User){
 
-    let i = this.users.indexOf(user);
-    console.log(i)
-    localStorage.setItem('index', ""+i);
-    console.log(user)
-    localStorage.setItem('id', ""+user.id);
+  updateUser(id:number) {
+    this.userService.updateUser(this.currentUser,this.currentUser.id).subscribe(() => {
+          this.router.navigate(['/users']);
+        },(error) => { alert("Problème lors de la modification !"); }
+    );
+    this.userService.getUsersList();
+  }
 
   }
-}
+
