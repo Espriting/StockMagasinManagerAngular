@@ -13,6 +13,7 @@ import { FormControl, FormGroup, Validators,ReactiveFormsModule, FormBuilder, Fo
 export class AddStockComponent implements OnInit {
 @Input() stock:Stock;
 listProduct:Product[];
+token:any;
 listProductLibelle:String[];
 validatingForm: FormGroup;
 @Output() addEvent=new EventEmitter<Stock>();
@@ -20,7 +21,9 @@ validatingForm: FormGroup;
   constructor( private stockservice:DataSharedStockService,private produitService:ProductService) { }
 
   ngOnInit(): void {
-    this.produitService.getProductsList().subscribe(
+
+    this.token = localStorage.getItem('tokenUser')!;
+    this.produitService.getProductsList(this.token).subscribe(
       (data)=>{
         this.listProduct=data;
       }

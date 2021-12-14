@@ -3,8 +3,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert';
 import { Token } from "@angular/compiler";
-import { User } from "../../../model/User";
 import { AuthService } from "../../service/auth.service";
+import { User } from 'src/app/model/User';
 
 
 @Component({
