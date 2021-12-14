@@ -41,7 +41,11 @@ export class UserService {
 
     getUserById(id: number) {
         const headers=new HttpHeaders().set("Authorization",this.token);
-        return this.HttpClient.get(this.baseURL + '/getUserById/' + id,{headers, responseType:'text' as 'json'});
+
+        return this.HttpClient.get<User>(this.baseURL + '/getUserById/' + id,{headers});
+
+     //   return this.HttpClient.get(this.baseURL + '/getUserById/' + id,{headers, responseType:'text' as 'json'});
+
     }
 
     login(user: User) {

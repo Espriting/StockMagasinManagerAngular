@@ -1,3 +1,4 @@
+
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
@@ -11,6 +12,14 @@ import {UserForgetComponent} from "./User-Management/user/user-forget/user-forge
 import {UserUpdateComponent} from "./User-Management/user/user-update/user-update.component";
 import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
 import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stock.component';
+import { MainCommandeComponent } from './Order-Management/commande/main-commande/main-commande.component';
+import { MainMyOrderComponent } from './Order-Management/commande/main-my-order/main-my-order.component';
+import {MDBBootstrapModule} from "angular-bootstrap-md";
+import {ShowOrderComponent} from "./Order-Management/commande/show-order/show-order.component";
+import {SingleOrderComponent} from "./Order-Management/commande/single-order/single-order.component";
+import {MainLivreurCommanndeComponent} from "./Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component";
+import {MesLivraisonComponent} from "./Order-Management/commande/mes-livraison/mes-livraison.component";
+import {CommandeRoutingModule} from "./Order-Management/commande/commande-routing.module";
 
 
 const routes: Routes = [
@@ -23,16 +32,13 @@ const routes: Routes = [
     {path: 'users', component: UserListComponent},
     {path: 'update/:id', component: UserUpdateComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
-    {path: '', component: MainProductComponent},
+    {path: '', component: LoginComponent},
     {path:'subscribe', component: FormUserComponent},
     {path: '**', component: NotFoundComponent},
-
-
-
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes), BrowserModule],
+    imports: [RouterModule.forRoot(routes), BrowserModule,  MDBBootstrapModule.forRoot(), CommandeRoutingModule],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

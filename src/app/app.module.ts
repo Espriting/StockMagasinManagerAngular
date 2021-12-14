@@ -14,12 +14,16 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+
 import { ListStockComponent } from './StockManagement/Stock/list-stock/list-stock.component';
 import { AddProductToStockComponent } from './StockManagement/Stock/add-product-to-stock/add-product-to-stock.component';
 import { AddStockComponent } from './StockManagement/Stock/add-stock/add-stock.component';
-import {LoginComponent} from "./User-Management/user/login/login.component";
 import {userModule} from "./User-Management/user/user.module";
+import { CommandeModule } from './Order-Management/commande/commande.module';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HomeComponent } from './home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     NotFoundComponent,
     ListStockComponent,
     AddProductToStockComponent,
-    AddStockComponent
+    AddStockComponent,
+    HomeComponent
 
   ],
   imports: [
@@ -38,10 +43,13 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     RouterModule,
     CommonModule,
     ProductModule,
+    CommandeModule,
     userModule,
     FormsModule,
+    NgxPaginationModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

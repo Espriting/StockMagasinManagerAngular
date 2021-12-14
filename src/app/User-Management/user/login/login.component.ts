@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 
 import {Router} from '@angular/router';
-import {User} from "../../../model/User";
 import {AuthService} from "../../service/auth.service";
+import {User} from "../../../model/User";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
 
   }
   onLoggedin(nom: any, password: any) {
-
     this.authService.generatetoken(nom, password).subscribe((data: any) => {
       this.isLoggedin = true
       this.token = data.access_token;

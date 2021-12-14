@@ -1,0 +1,38 @@
+<div class="modal-dialog mt-6" role="document">
+    <div class="modal-content border-0">
+
+        <div class="modal-header px-5 position-relative modal-shape-header bg-shape">
+            <div class="position-relative z-index-1 light">
+                <h4 class="mb-0 text-white" id="authentication-modal-label">Mes Factures en attente</h4>
+                <p class="fs--1 mb-0 text-white">Choisir la facture qui voulez vous commander</p>
+            </div>
+            <button class="btn-close btn-close-white position-absolute top-0 end-0 mt-2 me-2" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+        </div>
+        <div class="modal-body py-4 px-5">
+            <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                <thead class="bg-200 text-900">
+                <tr>
+                    <th> N°facture
+                    </th>
+                    <th class="text-center"> Action
+                    </th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let fact of mesfactures">
+                <tr>
+                    <td>
+                        <strong>{{fact.idFacture}}</strong>
+                    </td>
+                    <td class="text-center">
+                        <button role="button" class="btn btn-outline-success btn-sm" [routerLink]="['/addCmd', fact.idFacture]"  data-bs-dismiss="modal"
+                           aria-label="Close" click> commander </button>
+
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

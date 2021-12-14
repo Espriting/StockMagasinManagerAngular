@@ -1,0 +1,17 @@
+<div class="card text-center">
+    <div class="card-header">
+        <h6>Livraison N°:{{livraison.idLivraison}}</h6>
+        {{livraison.adressse}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{livraison.commande.factures.user.prenom}} {{livraison.commande.factures.user.nom}}</h5>
+        <p class="card-text">La facture N° {{livraison.commande.factures.idFacture}} avec le montant <strong>{{livraison.commande.factures.montantFacture}}</strong> DT n'a pas encore délivré</p>
+        <a *ngIf="showButtonLiv"  class="btn btn-primary" (click)="updateNotif()">Livré cette Commande</a>
+        <a   *ngIf="!showButtonLiv" class="btn btn-primary" (click)="updateNotif()">Annuler le livraison </a>
+
+    </div>
+    <div class="card-footer text-muted">
+        <h6> Facture commandé en :</h6>
+        {{livraison.commande.dateCommande | date: 'yyyy/MM/dd'}}
+    </div>
+</div>
