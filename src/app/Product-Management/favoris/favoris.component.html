@@ -1,0 +1,106 @@
+<div class="card mb-3">
+    <div class="card-body">
+      <div class="row flex-between-center">
+        <div class="col-sm-auto mb-2 mb-sm-0">
+          <h6 class="mb-0">Showing 1-24 of 205 Products</h6>
+        </div>
+        <div class="col-sm-auto">
+          <div class="row gx-2 align-items-center">
+            <div class="col-auto">
+              <form class="row gx-2">
+                <div class="col-auto"><small>Sort by:</small></div>
+                <div class="col-auto">
+                  <select class="form-select form-select-sm" aria-label="Bulk actions">
+                    <option selected="">Best Match</option>
+                    <option value="Refund">Newest</option>
+                    <option value="Delete">Price</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="col-auto pe-0"> <a class="text-600 px-1" href="../../../app/e-commerce/product/product-list.html"
+                data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Product List"
+                aria-label="Product List"><svg class="svg-inline--fa fa-list-ul fa-w-16" aria-hidden="true"
+                  focusable="false" data-prefix="fas" data-icon="list-ul" role="img" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512" data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M48 48a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm448 16H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z">
+                  </path>
+                </svg><!-- <span class="fas fa-list-ul"></span> Font Awesome fontawesome.com --></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="mb-4 col-md-6 col-lg-4" *ngFor="let fav of products">
+          <div class="border rounded-1 h-100 d-flex flex-column justify-content-between pb-3">
+            <div class="overflow-hidden">
+              <div class="position-relative rounded-top overflow-hidden"><a class="d-block"
+                  href="../../../app/e-commerce/product/product-details.html"><img class="img-fluid rounded-top"
+                    src="../../../assets/img/products/{{fav.picture}}" alt=""></a><span
+                  class="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">New</span>
+              </div>
+              <div class="p-3">
+                <h5 class="fs-0"><a class="text-dark">{{fav.libelle}}</a></h5>
+                <p class="fs--1 mb-3"><a class="text-500" href="#!">{{fav.categorieProduit}}</a></p>
+                <h5 class="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3">{{fav.prixUnitaire}} DT</h5>
+                <p class="fs--1 mb-1">Code: <strong>{{fav.code}}</strong></p>
+                <p class="fs--1 mb-1">Stock: <strong class="text-success">Available</strong>
+                </p>
+              </div>
+            </div>
+            <div class="d-flex flex-between-center px-3">
+              <div><svg class="svg-inline--fa fa-star fa-w-18 text-warning" aria-hidden="true" focusable="false"
+                  data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                  data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
+                  </path>
+                </svg><!-- <span class="fa fa-star text-warning"></span> Font Awesome fontawesome.com --><svg
+                  class="svg-inline--fa fa-star fa-w-18 text-warning" aria-hidden="true" focusable="false"
+                  data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                  data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
+                  </path>
+                </svg><!-- <span class="fa fa-star text-warning"></span> Font Awesome fontawesome.com --><svg
+                  class="svg-inline--fa fa-star fa-w-18 text-warning" aria-hidden="true" focusable="false"
+                  data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                  data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
+                  </path>
+                </svg><!-- <span class="fa fa-star text-warning"></span> Font Awesome fontawesome.com --><svg
+                  class="svg-inline--fa fa-star fa-w-18 text-warning" aria-hidden="true" focusable="false"
+                  data-prefix="fa" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                  data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
+                  </path>
+                </svg><!-- <span class="fa fa-star text-warning"></span> Font Awesome fontawesome.com --><svg
+                  class="svg-inline--fa fa-star fa-w-18 text-300" aria-hidden="true" focusable="false" data-prefix="fa"
+                  data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z">
+                  </path>
+                </svg><!-- <span class="fa fa-star text-300"></span> Font Awesome fontawesome.com --><span
+                  class="ms-1">(8)</span>
+              </div>
+              <div _ngcontent-iur-c55="" class="col-auto px-0"><a _ngcontent-iur-c55="" data-bs-toggle="tooltip"
+                  data-bs-placement="top" class="btn btn-sm btn-outline-danger border-300" (click)="deleteFavoris(favoris,fav)" ><svg _ngcontent-iur-c55=""
+                    class="svg-inline--fa fa-trash-alt fa-w-14" aria-hidden="true" focusable="false" data-prefix="far"
+                    data-icon="trash-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    data-fa-i2svg="">
+                    <path fill="currentColor"
+                      d="M268 416h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12zM432 80h-82.41l-34-56.7A48 48 0 0 0 274.41 0H173.59a48 48 0 0 0-41.16 23.3L98.41 80H16A16 16 0 0 0 0 96v16a16 16 0 0 0 16 16h16v336a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128h16a16 16 0 0 0 16-16V96a16 16 0 0 0-16-16zM171.84 50.91A6 6 0 0 1 177 48h94a6 6 0 0 1 5.15 2.91L293.61 80H154.39zM368 464H80V128h288zm-212-48h24a12 12 0 0 0 12-12V188a12 12 0 0 0-12-12h-24a12 12 0 0 0-12 12v216a12 12 0 0 0 12 12z">
+                    </path>
+                  </svg><!-- <i _ngcontent-iur-c55="" class="far fa-trash-alt"></i> Font Awesome fontawesome.com --></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
