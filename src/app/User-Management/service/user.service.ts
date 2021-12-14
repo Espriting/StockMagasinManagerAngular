@@ -26,12 +26,7 @@ export class UserService {
         return this.HttpClient.get(this.baseURL+ '/users',{headers});
     }
     
-    login(user: User) {
-
-
-        const headers=new HttpHeaders().set("Authorization",this.token);
-        return this.HttpClient.get(this.baseURL+ '/users',{headers});
-    }
+  
     addUser (user: User) {
         const headers=new HttpHeaders().set("Authorization",this.token);
         return this.HttpClient.post(this.baseURL + '/users/save', user,{headers});

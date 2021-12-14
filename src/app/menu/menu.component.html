@@ -1,96 +1,102 @@
-
 <nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
-    <script>
-      var navbarStyle = localStorage.getItem("navbarStyle");
-      if (navbarStyle && navbarStyle !== 'transparent') {
-        document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
-      }
-    </script>
-    <div class="d-flex align-items-center">
-      <div class="toggle-icon-wrapper">
+  <script>
+    var navbarStyle = localStorage.getItem("navbarStyle");
+    if (navbarStyle && navbarStyle !== 'transparent') {
+      document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
+    }
+  </script>
+  <div class="d-flex align-items-center">
+    <div class="toggle-icon-wrapper">
 
-        <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
+      <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
+        data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
+            class="toggle-line"></span></span></button>
 
-      </div><a class="navbar-brand" href="index.html">
-        <div class="d-flex align-items-center py-3"><img class="me-2" src="assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" /><span class="font-sans-serif">falcon</span>
-        </div>
-      </a>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
-      <div class="navbar-vertical-content scrollbar">
-        <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+    </div><a class="navbar-brand" href="index.html">
+      <div class="d-flex align-items-center py-3"><img class="me-2" src="assets/img/icons/spot-illustrations/falcon.png"
+          alt="" width="40" /><span class="font-sans-serif">falcon</span>
+      </div>
+    </a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+    <div class="navbar-vertical-content scrollbar">
+      <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
 
-          <li class="nav-item">
-            <!-- label-->
-            <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-              <div class="col-auto navbar-vertical-label">App
-              </div>
-              <div class="col ps-0">
-                <hr class="mb-0 navbar-vertical-divider" />
-              </div>
+        <li class="nav-item">
+          <!-- label-->
+          <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+            <div class="col-auto navbar-vertical-label">App
             </div>
-            <!-- parent pages--><a class="nav-link"  role="button"  routerLink="/products">
-              <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-alt"></span>
+            <div class="col ps-0">
+              <hr class="mb-0 navbar-vertical-divider" />
+            </div>
+          </div>
+          <!-- parent pages--><a class="nav-link" role="button" routerLink="/products">
+            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-calendar-alt"></span>
               </span><span class="nav-link-text ps-1">Products</span>
-              </div>
-            </a>
+            </div>
+          </a>
 
-            <!-- parent pages--><a class="nav-link" routerLink="/favoris" role="button" aria-expanded="false">
-              <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-comments"></span></span><span class="nav-link-text ps-1">Favoris</span>
+          <!-- parent pages--><a class="nav-link" routerLink="/favoris" role="button" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                  class="fas fa-comments"></span></span><span class="nav-link-text ps-1">Favoris</span>
+            </div>
+            </a>
 
             <!-- parent pages-->
-              <a class="nav-link" routerLink="/commandes" role="button" aria-expanded="false">
+            <a class="nav-link" routerLink="/commandes" role="button" aria-expanded="false">
               <div class="d-flex align-items-center">
-                  <span class="nav-link-icon">
-                      <span class="fas fa-comments"></span>
-                  </span>
-                  <span class="nav-link-text ps-1">Commandes</span>
+                <span class="nav-link-icon">
+                  <span class="fas fa-comments"></span>
+                </span>
+                <span class="nav-link-text ps-1">Commandes</span>
 
               </div>
             </a>
-              <a class="nav-link" routerLink="/mescommandes" role="button" aria-expanded="false">
-                  <div class="d-flex align-items-center">
-                  <span class="nav-link-icon">
-                      <span class="fas fa-cart-plus"></span>
-                  </span>
-                      <span class="nav-link-text ps-1">Mes Commandes</span>
-                  </div>
-              </a>
-              <a class="nav-link" routerLink="/Livre" role="button" aria-expanded="false">
-                  <div class="d-flex align-items-center">
-                  <span class="nav-link-icon">
-                      <span class="fas fa-cart-plus"></span>
-                  </span>
-                      <span class="nav-link-text ps-1">Livré</span>
-                  </div>
-              </a>
-              <a class="nav-link" routerLink="/MesLivraisons" role="button" aria-expanded="false">
-                  <div class="d-flex align-items-center">
-                  <span class="nav-link-icon">
-                      <span class="fas fa-cart-plus"></span>
-                  </span>
-                      <span class="nav-link-text ps-1">Mes Livraisons</span>
-                  </div>
-              </a>
-              <a class="nav-link" routerLink="/stock/listStock" role="button" aria-expanded="false">
-                  <div class="d-flex align-items-center">
-                  <span class="nav-link-icon">
-                      <span class="fas fa-cart-plus"></span>
-                  </span>
-                      <span class="nav-link-text ps-1">Stock</span>
-                  </div>
-              </a>
+            <a class="nav-link" routerLink="/mescommandes" role="button" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                  <span class="fas fa-cart-plus"></span>
+                </span>
+                <span class="nav-link-text ps-1">Mes Commandes</span>
+              </div>
+            </a>
+            <a class="nav-link" routerLink="/Livre" role="button" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                  <span class="fas fa-cart-plus"></span>
+                </span>
+                <span class="nav-link-text ps-1">Livré</span>
+              </div>
+            </a>
+            <a class="nav-link" routerLink="/MesLivraisons" role="button" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                  <span class="fas fa-cart-plus"></span>
+                </span>
+                <span class="nav-link-text ps-1">Mes Livraisons</span>
+              </div>
+            </a>
+            <a class="nav-link" routerLink="/stock/listStock" role="button" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                <span class="nav-link-icon">
+                  <span class="fas fa-cart-plus"></span>
+                </span>
+                <span class="nav-link-text ps-1">Stock</span>
+              </div>
+            </a>
 
 
-          </li>
+        </li>
 
-        </ul>
 
-      </div>
+      </ul>
+
     </div>
-  </nav>
+  </div>
+</nav>
 
-   <div class="content">
-      <app-header></app-header>
-       <router-outlet></router-outlet>
-    </div>
+<div class="content">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</div>

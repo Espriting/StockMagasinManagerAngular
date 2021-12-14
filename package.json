@@ -20,10 +20,8 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@auth0/angular-jwt": "^5.0.2",
-
     "@auth0/auth0-angular": "^1.8.0",
     "angular-bootstrap-md": "^12.1.0",
-
     "ngx-pagination": "^5.1.1",
     "rxjs": "~6.6.0",
     "sweetalert": "^2.1.2",
