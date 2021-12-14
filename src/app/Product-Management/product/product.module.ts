@@ -7,6 +7,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductRoutingModule } from '../product-routing.module';
 
 
 
@@ -22,7 +24,9 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule,
+    ProductRoutingModule
   ],
   exports:[
     MainProductComponent,

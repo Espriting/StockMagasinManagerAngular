@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="row flex-between-center">
             <div class="col-sm-auto mb-2 mb-sm-0">
-                <h6 class="mb-0">Showing 1-24 of 205 Products</h6>
+                <h6 class="mb-0">Showing {{tableSize}} of {{countProducts}} Products</h6>
             </div>
 
             <div class="col-sm-auto">
@@ -50,8 +50,8 @@
                             </g>
                         </svg>
                         <!-- <span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span> Font Awesome fontawesome.com --><span
-                            class="d-none d-sm-inline-block ms-1" data-bs-toggle="modal"
-                            data-bs-target="#add-product" (click)="showForm()">New Product</span></button>
+                            class="d-none d-sm-inline-block ms-1" data-bs-toggle="modal" data-bs-target="#add-product"
+                            (click)="showForm()">New Product</span></button>
 
 
                     <div class="modal fade" id="add-product" tabindex="-1" role="dialog" aria-hidden="true">
@@ -59,13 +59,13 @@
                             <div class="modal-content position-relative">
                                 <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
                                     <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
-                                        data-bs-dismiss="modal"  aria-label="Close"></button>
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body p-0">
                                     <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
                                         <h4 class="mb-1" id="modalExampleDemoLabel">Add a new product </h4>
                                     </div>
-                                    <div class="p-4 pb-0" >
+                                    <div class="p-4 pb-0">
 
                                         <app-add-product (addEvent)="save($event)" [product]="inputProduct">
                                         </app-add-product>
@@ -117,20 +117,27 @@
     <div class="card-body p-0 overflow-hidden">
 
         <div class="row g-0">
-            <app-single-product *ngFor="let currentProduct of products" [product]="currentProduct"
-                (deleteNotifEvent)="delete($event)" (updateNotifEvent)="update($event)"></app-single-product>
+            <app-single-product *ngFor="let currentProduct of products | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };" [product]="currentProduct" (deleteNotifEvent)="delete($event)" (updateNotifEvent)="update($event)">
+            </app-single-product>
         </div>
 
     </div>
     <div class="card-footer border-top d-flex justify-content-center">
-        <button class="btn btn-falcon-default btn-sm me-2" type="button" disabled="disabled" data-bs-toggle="tooltip"
+        <!-- <button class="btn btn-falcon-default btn-sm me-2" type="button" disabled="disabled" data-bs-toggle="tooltip"
             data-bs-placement="top" title="Prev"><span class="fas fa-chevron-left"></span></button><a
             class="btn btn-sm btn-falcon-default text-primary me-2" href="#!">1</a><a
             class="btn btn-sm btn-falcon-default me-2" href="#!">2</a><a class="btn btn-sm btn-falcon-default me-2"
             href="#!"><span class="fas fa-ellipsis-h"></span></a><a class="btn btn-sm btn-falcon-default me-2"
             href="#!">35</a>
         <button class="btn btn-falcon-default btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="top"
-            title="Next"><span class="fas fa-chevron-right"></span></button>
+            title="Next"><span class="fas fa-chevron-right"></span></button>-->
+        <pagination-controls  previousLabel="Prev" nextLabel="Next"
+            (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
     </div>
 </div>
 

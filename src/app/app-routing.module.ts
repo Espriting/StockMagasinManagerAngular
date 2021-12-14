@@ -1,4 +1,5 @@
 
+
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule, Routes} from '@angular/router';
@@ -22,9 +23,9 @@ import {MesLivraisonComponent} from "./Order-Management/commande/mes-livraison/m
 import {CommandeRoutingModule} from "./Order-Management/commande/commande-routing.module";
 
 
+
 const routes: Routes = [
-    {path: 'products', component: MainProductComponent},
-    {path: 'details/:id', component: ProductDetailsComponent},
+    { path: '', loadChildren: () => import('./Product-Management/product/product.module').then(m => m.ProductModule) },
     {path: 'login', component: LoginComponent},
     {path: 'forget', component: UserForgetComponent},
     {path:'stock/addStock/:stockStatus',component:AddStockComponent},
@@ -32,7 +33,7 @@ const routes: Routes = [
     {path: 'users', component: UserListComponent},
     {path: 'update/:id', component: UserUpdateComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
-    {path: '', component: LoginComponent},
+   // {path: '', component: LoginComponent},
     {path:'subscribe', component: FormUserComponent},
     {path: '**', component: NotFoundComponent},
 ];

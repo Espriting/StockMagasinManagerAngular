@@ -18,21 +18,47 @@ export class MainProductComponent implements OnInit {
   products: Product[];
   inputProduct: Product;
 
-  constructor(private productService: ProductService) { }
+  tokenUser:any;
+  token: string;
+
+  countProducts:number;
+
+  page = 1;
+  count = 0;
+  tableSize = 4;
+  tableSizes = [3, 6, 9, 12];
+
+  constructor(private productService: ProductService) {
+   
+    
+   }
 
   ngOnInit(): void {
+    this.token = localStorage.getItem('tokenUser')!;
+    console.log(this.token)
+
     this.getProducts();
     this.inputProduct = new Product();
+
+
+    this.productService.countProducts(this.token).subscribe((data:any)=>{
+      this.countProducts=data;
+    })
+    
+    
   }
 
   getProducts() {
-    this.productService.getProductsList().subscribe(
+    this.productService.getProductsList(this.token).subscribe(
       data => {
         this.products = data;
       }
     );
-
+    console.log(this.token)
+    //localStorage.clear();
   }
+
+ 
 
 
 
@@ -42,14 +68,21 @@ export class MainProductComponent implements OnInit {
 
     if (i != -1) {
       //this.getProducts();
-      this.productService.updateProduct(product).subscribe(() => this.products[i] = product);
+      this.productService.updateProduct(product,this.token).subscribe(() => this.products[i] = product);
       swal("success!", "Product updated!", "success");
 
     }
     else {*/
       //this.getProducts();
-      this.productService.addProduct(product).subscribe(() => this.products.push(product));
-      swal("success!", "Product added!", "success");
+      this.productService.addProduct(product,this.token).subscribe(() => {
+        this.products.push(product)
+        this.productService.countProducts(this.token).subscribe((data:any)=>{
+          this.countProducts=data;
+        })
+        swal("success!", "Product added!", "success");
+      });
+      
+      
 
     //}
   }
@@ -80,7 +113,7 @@ export class MainProductComponent implements OnInit {
 
         if (willDelete) {
           let i = this.products.indexOf(product);
-          this.productService.deleteProduct(product.idProduit).subscribe(data => {
+          this.productService.deleteProduct(product.idProduit,this.token).subscribe(data => {
             this.products.splice(i, 1)
           });
           swal("Product has been deleted!", {
@@ -93,4 +126,16 @@ export class MainProductComponent implements OnInit {
 
   }
 
+
+
+  onTableDataChange(event:any){
+    this.page = event;
+    this.getProducts();
+  }  
+
+  onTableSizeChange(event:any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getProducts();
+  }  
 }

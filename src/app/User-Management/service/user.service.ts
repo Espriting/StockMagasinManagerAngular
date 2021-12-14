@@ -22,6 +22,14 @@ export class UserService {
     getUsersList(): Observable<any>{
 
         const headers=new HttpHeaders().set("Authorization",this.token);
+        console.log(this.token)
+        return this.HttpClient.get(this.baseURL+ '/users',{headers});
+    }
+    
+    login(user: User) {
+
+
+        const headers=new HttpHeaders().set("Authorization",this.token);
         return this.HttpClient.get(this.baseURL+ '/users',{headers});
     }
     addUser (user: User) {
@@ -50,6 +58,7 @@ export class UserService {
 
     login(user: User) {
         const headers=new HttpHeaders().set("Authorization",this.token);
+
         return this.HttpClient.post(this.baseURL + '/login', user);
     }
 

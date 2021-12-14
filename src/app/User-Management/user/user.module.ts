@@ -1,3 +1,4 @@
+
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormUserComponent} from './form-user/form-user.component';
@@ -18,6 +19,7 @@ import {UserUpdateComponent} from './user-update/user-update.component';
         UserForgetComponent,
         UserUpdateComponent
     ],
+
     imports: [
         CommonModule,
         HttpClientModule,
@@ -25,9 +27,10 @@ import {UserUpdateComponent} from './user-update/user-update.component';
         ReactiveFormsModule,
         RouterModule
     ],
-    exports: [
+
+    exports:[
         LoginComponent,
     ]
 })
-export class userModule {
-}
+export class userModule { }
+

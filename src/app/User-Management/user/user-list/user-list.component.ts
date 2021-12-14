@@ -16,11 +16,13 @@ export class UserListComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
         localStorage.getItem('tokenUser');
         this.getUser();
     }
 
     getUser() {
+
         this.userService.getUsersList().subscribe(
             data => {
                 console.log(data);
@@ -31,8 +33,9 @@ export class UserListComponent implements OnInit {
 
 
 
+
     delete(user: User) {
-        console.log("suppppppppppppppppppppppppppppp supprimé");
+        console.log("supp supprimé");
         let conf = confirm("Etes-vous sûr ?");
         let i = this.users.indexOf(user);
         if (conf)
@@ -41,6 +44,7 @@ export class UserListComponent implements OnInit {
                 console.log(i)
             });
     }
+
 
 
 }

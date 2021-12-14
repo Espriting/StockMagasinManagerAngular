@@ -1,3 +1,4 @@
+
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../../model/User";
 import {AuthService} from "../../service/auth.service";
@@ -8,9 +9,11 @@ import {DatePipe, formatDate} from '@angular/common';
 
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
+
 @Component({
   selector: 'app-form-user',
   templateUrl: './form-user.component.html',
+
   styleUrls: ['./form-user.component.css'],
   providers: [DatePipe]
 

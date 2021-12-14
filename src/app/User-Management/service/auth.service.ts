@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
+
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import { environment } from 'src/environments/environment';
@@ -9,11 +10,14 @@ import {User} from "../../model/User";
 import {pipe, throwError} from "rxjs";
 import {catchError, map} from "rxjs/operators";
 
+
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
+
     apiURL: string = environment.url;
+
     token: string;
     public loggedUser: string;
     public isloggedIn: Boolean = false;
@@ -28,13 +32,18 @@ export class AuthService {
     login(user: User) {
         return this.http.post<User>(this.apiURL + '/login', user,
             {observe: 'response'});
+
     }
 
     saveToken(access_token: string) {
-        localStorage.setItem('access_token', access_token);
+        localStorage.setItem('tokenUser', access_token);
         this.token = access_token;
         this.isloggedIn = true;
-        this.decodeJWT();
+        localStorage.setItem('isloggedIn', ""+true);
+
+
+   
+  
     }
 
     decodeJWT() {
@@ -50,13 +59,28 @@ export class AuthService {
         this.roles = this.roles;
         this.token = this.token;
         this.isloggedIn = false;
-        localStorage.removeItem('access_token');
+
+        localStorage.removeItem('tokenUser');
+        localStorage.setItem('isloggedIn', ""+false);
+
         this.router.navigate(['/login']);
     }
 
     isTokenExpired(): Boolean {
         return this.helper.isTokenExpired(this.token);
     }
+
+
+    setLoggedUserFromLocalStorage(login: string) {
+        this.loggedUser = login;
+        this.isloggedIn = true;
+        this.getUserRoles(login);
+    }
+
+    getUserRoles(login: string) {
+
+    }
+
 
     generatetoken(nom:any, password:any){
         let body = new URLSearchParams();
@@ -78,7 +102,10 @@ export class AuthService {
         return this.roles.indexOf('ROLE_SUPER_ADMIN') >= 0;
     }
     getToken() {
-        return localStorage.getItem('access_token');
+
+        return localStorage.getItem('tokenUser');
     }
+
+
 
 }

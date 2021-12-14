@@ -1,6 +1,4 @@
-<main class="main" id="top">
-
-
+<main class="main" id="top" *ngIf="local">
 
   <div class="container" data-layout="container">
     <script>
@@ -15,9 +13,9 @@
 
 
 
-
   </div>
 </main>
+<app-login *ngIf="!local"></app-login>
 
 <div class="offcanvas offcanvas-end settings-panel border-0" id="settings-offcanvas" tabindex="-1"
      aria-labelledby="settings-offcanvas">
