@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
 
   }
   onLoggedin(nom: any, password: any) {
-
     this.authService.generatetoken(nom, password).subscribe((data: any) => {
       this.isLoggedin = true
       this.token = data.access_token;

@@ -19,16 +19,11 @@ import {ShowOrderComponent} from "./Order-Management/commande/show-order/show-or
 import {SingleOrderComponent} from "./Order-Management/commande/single-order/single-order.component";
 import {MainLivreurCommanndeComponent} from "./Order-Management/commande/main-livreur-commannde/main-livreur-commannde.component";
 import {MesLivraisonComponent} from "./Order-Management/commande/mes-livraison/mes-livraison.component";
+import {CommandeRoutingModule} from "./Order-Management/commande/commande-routing.module";
 
 
 const routes: Routes = [
     {path: 'products', component: MainProductComponent},
-    {path: 'commandes', component:MainCommandeComponent},
-    {path: 'showCmd', component:ShowOrderComponent},
-    {path: 'addCmd/:id', component:SingleOrderComponent},
-    {path: 'mescommandes', component:MainMyOrderComponent},
-    {path: 'Livre', component:MainLivreurCommanndeComponent},
-    {path: 'MesLivraisons', component:MesLivraisonComponent},
     {path: 'details/:id', component: ProductDetailsComponent},
     {path: 'login', component: LoginComponent},
     {path: 'forget', component: UserForgetComponent},
@@ -40,14 +35,10 @@ const routes: Routes = [
     {path: '', component: LoginComponent},
     {path:'subscribe', component: FormUserComponent},
     {path: '**', component: NotFoundComponent},
-
-
-
-
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes), BrowserModule,  MDBBootstrapModule.forRoot()],
+    imports: [RouterModule.forRoot(routes), BrowserModule,  MDBBootstrapModule.forRoot(), CommandeRoutingModule],
     exports: [RouterModule]
 })
 export class AppRoutingModule {
