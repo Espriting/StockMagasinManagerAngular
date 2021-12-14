@@ -31,23 +31,20 @@ export class UserListComponent implements OnInit {
         );
     }
 
-    supprimerUser(u: User) {
-        console.log("suppppppppppppppppppppppppppppp supprimé");
+
+
+
+    delete(user: User) {
+        console.log("supp supprimé");
         let conf = confirm("Etes-vous sûr ?");
+        let i = this.users.indexOf(user);
         if (conf)
-            this.userService.deleteUser(u.id).subscribe(() => {
-                console.log("produit supprimé");
-                this.SuprimerProduitDuTableau(u);
+            this.userService.deleteUser(user.id).subscribe((data: any) => {
+                this.users.splice(i, 1)
+                console.log(i)
             });
     }
 
-    SuprimerProduitDuTableau(usr: User) {
-        this.users.forEach((cur, index) => {
-            if (usr.id === cur.id) {
-                this.users.splice(index, 1);
-            }
-        });
-    }
 
 
 }

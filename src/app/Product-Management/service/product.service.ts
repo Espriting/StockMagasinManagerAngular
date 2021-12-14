@@ -11,7 +11,10 @@ import { environment } from 'src/environments/environment';
 export class ProductService {
 
   private baseURL=environment.url+"produit";
+  public tokenUser=localStorage.getItem('tokenUser');
+  public token=this.tokenUser!;
   constructor(private HttpClient: HttpClient) { }
+
 
   /*getToken(username:any, password:any){
     let body = new URLSearchParams();
@@ -37,6 +40,7 @@ export class ProductService {
     };
     httpOptions.headers =httpOptions.headers.set('authorization', token);
      return this.HttpClient.get(this.baseURL+'/display',httpOptions);
+
   }
 
   addProduct(product: Product,token: any){

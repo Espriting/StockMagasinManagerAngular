@@ -1,14 +1,23 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import { environment } from 'src/environments/environment';
+
 import {User} from "../../model/User";
+
+import {pipe, throwError} from "rxjs";
+import {catchError, map} from "rxjs/operators";
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    apiURL: string = 'http://localhost:8118/StockMagasinManager';
+
+    apiURL: string = environment.url;
+
     token: string;
     public loggedUser: string;
     public isloggedIn: Boolean = false;
@@ -17,6 +26,7 @@ export class AuthService {
 
     constructor(private router: Router, private http: HttpClient) {
     }
+
 
 
     login(user: User) {
@@ -30,7 +40,10 @@ export class AuthService {
         this.token = access_token;
         this.isloggedIn = true;
         localStorage.setItem('isloggedIn', ""+true);
-        this.decodeJWT();
+
+
+   
+  
     }
 
     decodeJWT() {
@@ -46,14 +59,17 @@ export class AuthService {
         this.roles = this.roles;
         this.token = this.token;
         this.isloggedIn = false;
+
         localStorage.removeItem('tokenUser');
         localStorage.setItem('isloggedIn', ""+false);
+
         this.router.navigate(['/login']);
     }
 
     isTokenExpired(): Boolean {
         return this.helper.isTokenExpired(this.token);
     }
+
 
     setLoggedUserFromLocalStorage(login: string) {
         this.loggedUser = login;
@@ -64,6 +80,7 @@ export class AuthService {
     getUserRoles(login: string) {
 
     }
+
 
     generatetoken(nom:any, password:any){
         let body = new URLSearchParams();
@@ -85,8 +102,10 @@ export class AuthService {
         return this.roles.indexOf('ROLE_SUPER_ADMIN') >= 0;
     }
     getToken() {
+
         return localStorage.getItem('tokenUser');
     }
+
 
 
 }

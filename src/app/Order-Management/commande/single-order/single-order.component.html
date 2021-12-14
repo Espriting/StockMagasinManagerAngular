@@ -1,0 +1,38 @@
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h4 class="modal-title" >Commander facture N°:
+                    <br>{{facture.idFacture}}</h4>
+                <h6>Client:<br> {{facture.user.prenom}} {{facture.user.nom}}</h6>
+            </div>
+            <div class="modal-body">
+                <form class="w-50 mx-auto" #c="ngForm">
+                    <div class="form-group">
+                        <label >Votre adresse</label>
+                        <input type="text" name="adresse" id="Title" class="form-control"
+                               #nc="ngModel" required minlength="3" [(ngModel)]="liv.adressse">
+                        <div class="alert alert-danger" *ngIf="nc.touched&&nc.invalid">
+                            <div *ngIf="nc.hasError('required')">Adresse obligatoire</div>
+                            <div *ngIf="nc.hasError('minlength')">adresse doit être superieur a 3</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label >Votre date</label>
+                        <input type="text" name="date" id="date" class="form-control" [value]="thirdDate | date: 'yyyy/MM/dd'" disabled>
+                    </div>
+                    <br>
+                    <button class="btn btn-outline-success"
+                            [disabled]="c.invalid"  (click)="save()">
+                        save
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-outline-warning" (click)="c.reset()">reset</button>
+                </form>
+
+
+
+            </div>
+
+        </div>
+    </div>
+

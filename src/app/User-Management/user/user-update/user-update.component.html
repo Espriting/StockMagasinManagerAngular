@@ -1,0 +1,39 @@
+<form >
+    <div  class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID User</label>
+        <input type="text" [(ngModel)]="currentUser.id" name="id" class="form-control">
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5" >
+        <label >Nom </label>
+        <input type="text"[(ngModel)]= "currentUser.nom" name="nom" class="form-control">
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5">
+        <label >Prenom</label>
+        <input type="text" [(ngModel)]= "currentUser.prenom" name="prenom" class="form-control">
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5" >
+        <label>Email</label>
+        <input type="text" [(ngModel)]= "currentUser.email" name="email" class="form-control">
+    </div>
+
+    <div class="col-sm-5 col-md-5 col-lg-5" >
+        <label >Password</label>
+        <input type="text" [(ngModel)]= "currentUser.password" name="password" class="form-control">
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date création</label>
+        <input type="date"
+               [ngModel]= "currentUser.dateNaissance | date: 'yyyy-MM-dd'"
+               (ngModelChange)=" currentUser.dateNaissance= $event"
+               name="dateCreation" class="form-control">
+    </div>
+
+    <div class="mt-2">
+        <button type="submit" (click)="updateUser(currentUser.id)" class="btn btn-success">Modifier</button>
+
+    </div>
+</form>

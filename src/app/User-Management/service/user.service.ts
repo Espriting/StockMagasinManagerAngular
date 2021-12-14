@@ -20,27 +20,45 @@ export class UserService {
 
 
     getUsersList(): Observable<any>{
+
         const headers=new HttpHeaders().set("Authorization",this.token);
         console.log(this.token)
         return this.HttpClient.get(this.baseURL+ '/users',{headers});
     }
-    addUser(user: User) {
-        return this.HttpClient.post(this.baseURL + '/registerUser', user);
+    
+    login(user: User) {
+
+
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.get(this.baseURL+ '/users',{headers});
+    }
+    addUser (user: User) {
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.post(this.baseURL + '/users/save', user,{headers});
     }
 
-    updateUser(id: number, user: User) {
-        return this.HttpClient.put(this.baseURL + '/updateUser/${id}', user);
+    updateUser(user: User, id:number) {
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.put(this.baseURL + '/updateUser/'+id,user,{headers, responseType:'text' as 'json'});
     }
 
     deleteUser(id: number) {
-        return this.HttpClient.delete(this.baseURL + '/deletUser/${id}' + id);
+        const headers=new HttpHeaders().set("Authorization",this.token);
+        return this.HttpClient.get(this.baseURL + '/deletUser/'+ id,{headers});
     }
 
     getUserById(id: number) {
-        return this.HttpClient.get(this.baseURL + '/getUserById/${id}' + id);
+        const headers=new HttpHeaders().set("Authorization",this.token);
+
+        return this.HttpClient.get<User>(this.baseURL + '/getUserById/' + id,{headers});
+
+     //   return this.HttpClient.get(this.baseURL + '/getUserById/' + id,{headers, responseType:'text' as 'json'});
+
     }
 
     login(user: User) {
+        const headers=new HttpHeaders().set("Authorization",this.token);
+
         return this.HttpClient.post(this.baseURL + '/login', user);
     }
 
