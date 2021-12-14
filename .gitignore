@@ -1,5 +1,7 @@
 node_modules/**
 documentation/**
-.idea/workspace.xml
-package-lock.json
+angular.json
 package.json
+package-lock.json
+.idea/workspace.xml
+

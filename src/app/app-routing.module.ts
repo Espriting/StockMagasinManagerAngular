@@ -37,7 +37,7 @@ const routes: Routes = [
     {path: 'users', component: UserListComponent},
     {path: 'update/:id', component: UserUpdateComponent},
     {path: 'products/details/:id', component: ProductDetailsComponent},
-    {path: '', component: MainProductComponent},
+    {path: '', component: LoginComponent},
     {path:'subscribe', component: FormUserComponent},
     {path: '**', component: NotFoundComponent},
 

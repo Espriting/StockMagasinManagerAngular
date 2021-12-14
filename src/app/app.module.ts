@@ -22,6 +22,7 @@ import {userModule} from "./User-Management/user/user.module";
 import { CommandeModule } from './Order-Management/commande/commande.module';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     NotFoundComponent,
     ListStockComponent,
     AddProductToStockComponent,
-    AddStockComponent
+    AddStockComponent,
+    HomeComponent
 
   ],
   imports: [
